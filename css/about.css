@@ -1,0 +1,44 @@
+/* about.css — About section styles */
+
+/* ──────────────────────────────────────────────
+   Section number label
+   ────────────────────────────────────────────── */
+.section-number {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-green);
+  letter-spacing: 0.2em;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+/* ──────────────────────────────────────────────
+   About text
+   ────────────────────────────────────────────── */
+.about-text p {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-lg);
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ──────────────────────────────────────────────
+   About image / headshot
+   ────────────────────────────────────────────── */
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-headshot {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  border: 2px solid var(--color-border);
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+}

@@ -1,0 +1,71 @@
+/* variables.css — Design tokens (colors, typography, spacing, breakpoints) */
+
+:root {
+  /* ──────────────────────────────────────────────
+     Colors — Spotify dark design language
+     ────────────────────────────────────────────── */
+  --color-green: #1DB954;
+  --color-green-hover: #1ED760;
+  --color-green-dark: #158C3F;
+
+  --color-bg-primary: #191414;
+  --color-bg-secondary: #121212;
+  --color-bg-elevated: #1A1A1A;
+  --color-bg-card: #232323;
+
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B3B3B3;
+  --color-text-muted: #727272;
+
+  --color-border: #333333;
+  --color-border-hover: #535353;
+
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+
+  /* ──────────────────────────────────────────────
+     Typography — Font sizes (rem-based scale)
+     ────────────────────────────────────────────── */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --font-size-4xl: 3rem;
+  --font-size-5xl: 4rem;
+  --font-size-hero: clamp(2.5rem, 6vw, 5rem);
+
+  /* ──────────────────────────────────────────────
+     Spacing — Consistent spacing scale
+     ────────────────────────────────────────────── */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-section: 5rem;
+
+  /* ──────────────────────────────────────────────
+     Font families
+     ────────────────────────────────────────────── */
+  --font-heading: 'Montserrat', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ──────────────────────────────────────────────
+   Breakpoints (documented as comments — cannot
+   be used in media queries as CSS variables)
+
+   --bp-sm: 576px    (large phones)
+   --bp-md: 768px    (tablets)
+   --bp-lg: 1024px   (small laptops)
+   --bp-xl: 1280px   (desktops)
+   --bp-2xl: 1440px  (large desktops)
+   ────────────────────────────────────────────── */

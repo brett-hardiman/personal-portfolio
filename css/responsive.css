@@ -1,0 +1,163 @@
+/* responsive.css — Media query overrides for cross-component responsiveness */
+/* Mobile-first: base styles are for mobile, min-width queries add complexity */
+
+/* ──────────────────────────────────────────────
+   Global overflow protection — Task 4-6
+   ────────────────────────────────────────────── */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Prevent flex/grid children from overflowing */
+.section-container,
+.about-text,
+.timeline-content,
+.project-card-content {
+  min-width: 0;
+}
+
+/* ──────────────────────────────────────────────
+   320px — Smallest supported width (iPhone SE)
+   ────────────────────────────────────────────── */
+@media (max-width: 375px) {
+  .section {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero-name {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* ──────────────────────────────────────────────
+   Touch targets — ensure 44x44px minimum
+   ────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .social-links a {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+
+  .project-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   576px — Large phones
+   ────────────────────────────────────────────── */
+@media (min-width: 576px) {
+  .section-container {
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+}
+
+/* ──────────────────────────────────────────────
+   768px — Tablets
+   ────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .section-container {
+    padding-left: var(--space-2xl);
+    padding-right: var(--space-2xl);
+  }
+
+  .section-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ──────────────────────────────────────────────
+   1024px — Small laptops
+   ────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .about-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .about-text {
+    flex: 1;
+  }
+
+  .about-image {
+    flex: 0 0 300px;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   1280px — Desktops
+   ────────────────────────────────────────────── */
+@media (min-width: 1280px) {
+  .section-container {
+    padding-left: var(--space-3xl);
+    padding-right: var(--space-3xl);
+  }
+}
+
+/* ──────────────────────────────────────────────
+   Print stylesheet — Task 4-6
+   ────────────────────────────────────────────── */
+@media print {
+  .site-header,
+  .scroll-progress,
+  .hero-decorative,
+  .hero-bg,
+  .nav-toggle {
+    display: none !important;
+  }
+
+  .section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .section--hero {
+    min-height: auto;
+  }
+
+  a[href^="http"]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: #333;
+  }
+
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+}

@@ -1,0 +1,83 @@
+/* testimonials.css — Testimonials section styles */
+
+/* ──────────────────────────────────────────────
+   Hidden state — remove this class to activate
+   ────────────────────────────────────────────── */
+.section--hidden {
+  display: none;
+}
+
+/* ──────────────────────────────────────────────
+   Testimonials grid
+   ────────────────────────────────────────────── */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ──────────────────────────────────────────────
+   Testimonial card
+   ────────────────────────────────────────────── */
+.testimonial-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-green);
+  border-radius: 8px;
+  padding: var(--space-xl);
+  margin: 0;
+}
+
+/* ──────────────────────────────────────────────
+   Testimonial quote with decorative quotation mark
+   ────────────────────────────────────────────── */
+.testimonial-quote {
+  font-style: italic;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  position: relative;
+  padding-left: var(--space-lg);
+}
+
+.testimonial-quote::before {
+  content: '\201C';
+  font-size: var(--font-size-5xl);
+  color: var(--color-green);
+  opacity: 0.3;
+  position: absolute;
+  top: -1rem;
+  left: -0.5rem;
+  font-family: 'Montserrat', system-ui, sans-serif;
+  line-height: 1;
+}
+
+/* ──────────────────────────────────────────────
+   Testimonial author
+   ────────────────────────────────────────────── */
+.testimonial-author {
+  display: block;
+}
+
+.testimonial-name {
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.testimonial-role {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}

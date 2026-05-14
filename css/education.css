@@ -1,0 +1,114 @@
+/* education.css — Education and certifications section styles */
+
+/* ──────────────────────────────────────────────
+   Education layout — side-by-side on desktop
+   ────────────────────────────────────────────── */
+.education-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+}
+
+@media (min-width: 768px) {
+  .education-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-4xl);
+  }
+
+  .education-list {
+    flex: 1;
+  }
+
+  .certifications {
+    flex: 1;
+    margin-top: 0 !important;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   Education list
+   ────────────────────────────────────────────── */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+/* ──────────────────────────────────────────────
+   Education item — green left border accent
+   ────────────────────────────────────────────── */
+.education-item {
+  border-left: 3px solid var(--color-green);
+  padding-left: var(--space-xl);
+}
+
+.education-degree {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.education-school {
+  color: var(--color-green);
+  font-weight: 500;
+  margin-bottom: var(--space-sm);
+}
+
+.education-detail {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* ──────────────────────────────────────────────
+   Certifications
+   ────────────────────────────────────────────── */
+.certifications {
+  margin-top: var(--space-3xl);
+}
+
+.certification-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xl);
+}
+
+.certification-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xl);
+  justify-content: flex-start;
+}
+
+.cert-badge-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  min-width: 180px;
+}
+
+.cert-badge-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-4px);
+}
+
+.cert-badge-card img {
+  width: 120px;
+  height: 120px;
+}
+
+.cert-badge-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-align: center;
+  letter-spacing: 0.05em;
+}

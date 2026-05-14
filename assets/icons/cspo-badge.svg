@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <!-- Outer starburst ring -->
+  <polygon points="80,4 92,30 120,12 108,40 140,36 122,58 152,64 124,76 146,96 116,92 128,122 100,108 102,140 80,118 58,140 60,108 32,122 44,92 14,96 36,76 8,64 38,58 20,36 52,40 40,12 68,30" fill="none" stroke="#E07C3E" stroke-width="2"/>
+  <!-- Dark inner circle -->
+  <circle cx="80" cy="80" r="52" fill="#191414" stroke="#E07C3E" stroke-width="2.5"/>
+  <!-- Inner accent ring -->
+  <circle cx="80" cy="80" r="44" fill="none" stroke="#E07C3E" stroke-width="0.5" opacity="0.5"/>
+  <!-- Scrum Alliance text -->
+  <text x="80" y="52" text-anchor="middle" font-family="Montserrat, system-ui, sans-serif" font-size="7" font-weight="600" fill="#E07C3E" letter-spacing="0.15em">SCRUM ALLIANCE</text>
+  <!-- CSPO text -->
+  <text x="80" y="82" text-anchor="middle" font-family="Montserrat, system-ui, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF" letter-spacing="0.05em">CSPO</text>
+  <!-- Banner -->
+  <rect x="24" y="96" width="112" height="18" rx="2" fill="#E07C3E"/>
+  <text x="80" y="109" text-anchor="middle" font-family="Montserrat, system-ui, sans-serif" font-size="7.5" font-weight="700" fill="#191414" letter-spacing="0.1em">PRODUCT OWNER</text>
+  <!-- Bottom diamond -->
+  <polygon points="80,126 86,134 80,142 74,134" fill="#E07C3E"/>
+</svg>

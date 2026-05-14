@@ -1,0 +1,39 @@
+/* contact.css — Contact section styles */
+
+/* ──────────────────────────────────────────────
+   Contact text
+   ────────────────────────────────────────────── */
+.contact-text {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: var(--space-2xl);
+}
+
+/* ──────────────────────────────────────────────
+   Social links (shared by contact and footer)
+   ────────────────────────────────────────────── */
+.social-links {
+  display: flex;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+  align-items: center;
+}
+
+.social-links a {
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.social-links a:hover {
+  color: var(--color-green);
+}
+
+.social-links svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}

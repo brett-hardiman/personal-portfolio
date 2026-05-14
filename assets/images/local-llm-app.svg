@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- Background -->
+  <rect width="800" height="450" rx="8" fill="#191414"/>
+
+  <!-- Window chrome -->
+  <rect x="0" y="0" width="800" height="32" rx="8" fill="#232323"/>
+  <rect x="0" y="16" width="800" height="16" fill="#232323"/>
+  <circle cx="20" cy="16" r="6" fill="#FF5F57"/>
+  <circle cx="40" cy="16" r="6" fill="#FEBC2E"/>
+  <circle cx="60" cy="16" r="6" fill="#28C840"/>
+  <text x="400" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#727272">Local LLM App — localhost:8501</text>
+
+  <!-- Sidebar -->
+  <rect x="0" y="32" width="220" height="418" fill="#121212"/>
+  <rect x="0" y="32" width="220" height="1" fill="#333"/>
+
+  <!-- Sidebar title -->
+  <text x="20" y="62" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Local LLM Chat</text>
+  <rect x="20" y="72" width="180" height="1" fill="#333"/>
+
+  <!-- Sidebar - upload section -->
+  <text x="20" y="100" font-family="system-ui, sans-serif" font-size="11" fill="#B3B3B3">Upload Documents</text>
+  <rect x="20" y="112" width="180" height="40" rx="4" fill="#232323" stroke="#333" stroke-width="1"/>
+  <text x="110" y="136" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#727272">Drop PDFs here</text>
+
+  <!-- Sidebar - uploaded files -->
+  <text x="20" y="180" font-family="system-ui, sans-serif" font-size="11" fill="#B3B3B3">Uploaded Files</text>
+  <rect x="20" y="192" width="180" height="28" rx="4" fill="#232323"/>
+  <text x="36" y="210" font-family="system-ui, sans-serif" font-size="11" fill="#1DB954">requirements.pdf</text>
+  <rect x="20" y="226" width="180" height="28" rx="4" fill="#232323"/>
+  <text x="36" y="244" font-family="system-ui, sans-serif" font-size="11" fill="#1DB954">architecture.pdf</text>
+  <rect x="20" y="260" width="180" height="28" rx="4" fill="#232323"/>
+  <text x="36" y="278" font-family="system-ui, sans-serif" font-size="11" fill="#1DB954">user-guide.pdf</text>
+
+  <!-- Sidebar - model selector -->
+  <text x="20" y="320" font-family="system-ui, sans-serif" font-size="11" fill="#B3B3B3">Model</text>
+  <rect x="20" y="330" width="180" height="30" rx="4" fill="#232323" stroke="#333" stroke-width="1"/>
+  <text x="32" y="350" font-family="monospace" font-size="11" fill="#FFFFFF">llama3.2:latest</text>
+
+  <!-- Sidebar footer -->
+  <text x="20" y="420" font-family="system-ui, sans-serif" font-size="9" fill="#727272">Powered by Ollama + Streamlit</text>
+  <text x="20" y="435" font-family="system-ui, sans-serif" font-size="9" fill="#727272">100% Local — No API Keys</text>
+
+  <!-- Divider -->
+  <rect x="220" y="32" width="1" height="418" fill="#333"/>
+
+  <!-- Chat area -->
+  <!-- User message 1 -->
+  <rect x="440" y="60" width="330" height="50" rx="12" fill="#1DB954"/>
+  <text x="460" y="82" font-family="system-ui, sans-serif" font-size="12" fill="#191414">What are the key requirements for</text>
+  <text x="460" y="98" font-family="system-ui, sans-serif" font-size="12" fill="#191414">the authentication module?</text>
+
+  <!-- AI response 1 -->
+  <rect x="240" y="126" width="380" height="80" rx="12" fill="#232323"/>
+  <text x="260" y="150" font-family="system-ui, sans-serif" font-size="12" fill="#B3B3B3">Based on requirements.pdf, the auth module</text>
+  <text x="260" y="168" font-family="system-ui, sans-serif" font-size="12" fill="#B3B3B3">needs: OAuth 2.0, MFA support, session</text>
+  <text x="260" y="186" font-family="system-ui, sans-serif" font-size="12" fill="#B3B3B3">management, and role-based access control.</text>
+
+  <!-- User message 2 -->
+  <rect x="480" y="222" width="290" height="36" rx="12" fill="#1DB954"/>
+  <text x="500" y="245" font-family="system-ui, sans-serif" font-size="12" fill="#191414">Summarize the architecture decisions</text>
+
+  <!-- AI response 2 -->
+  <rect x="240" y="274" width="380" height="62" rx="12" fill="#232323"/>
+  <text x="260" y="298" font-family="system-ui, sans-serif" font-size="12" fill="#B3B3B3">The architecture document outlines a</text>
+  <text x="260" y="316" font-family="system-ui, sans-serif" font-size="12" fill="#B3B3B3">microservices approach with event-driven...</text>
+
+  <!-- Typing indicator -->
+  <circle cx="260" cy="360" r="4" fill="#727272" opacity="0.6"/>
+  <circle cx="274" cy="360" r="4" fill="#727272" opacity="0.4"/>
+  <circle cx="288" cy="360" r="4" fill="#727272" opacity="0.2"/>
+
+  <!-- Input bar -->
+  <rect x="240" y="400" width="540" height="36" rx="18" fill="#232323" stroke="#333" stroke-width="1"/>
+  <text x="268" y="423" font-family="system-ui, sans-serif" font-size="13" fill="#727272">Ask about your documents...</text>
+  <circle cx="752" cy="418" r="14" fill="#1DB954"/>
+  <polygon points="748,412 748,424 758,418" fill="#191414"/>
+</svg>

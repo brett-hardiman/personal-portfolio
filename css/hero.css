@@ -1,0 +1,140 @@
+/* hero.css — Hero section styles */
+
+/* ──────────────────────────────────────────────
+   Hero section — overflow hidden for parallax
+   ────────────────────────────────────────────── */
+.section--hero {
+  overflow: hidden;
+}
+
+/* ──────────────────────────────────────────────
+   Hero background — CSS-only decorative gradient
+   ────────────────────────────────────────────── */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(29, 185, 84, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(29, 185, 84, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(29, 185, 84, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ──────────────────────────────────────────────
+   Parallax decorative elements — Task 3-3
+   ────────────────────────────────────────────── */
+.hero-decorative {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-blob--1 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(29, 185, 84, 0.15) 0%, transparent 70%);
+}
+
+.hero-blob--2 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: 20%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(29, 185, 84, 0.08) 0%, transparent 70%);
+}
+
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(83, 83, 83, 0.4) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.5;
+}
+
+/* ──────────────────────────────────────────────
+   Hero content
+   ────────────────────────────────────────────── */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: var(--space-xl);
+  max-width: 800px;
+}
+
+.hero-greeting {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-md);
+  color: var(--color-green);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.1em;
+}
+
+.hero-name {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-hero);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+}
+
+.hero-title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xl);
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.hero-separator {
+  color: var(--color-green);
+  margin: 0 var(--space-xs);
+}
+
+.hero-tagline {
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xl);
+  line-height: 1.6;
+}
+
+/* ──────────────────────────────────────────────
+   Hero CTA buttons
+   ────────────────────────────────────────────── */
+.hero-cta {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ──────────────────────────────────────────────
+   Responsive — mobile adjustments
+   ────────────────────────────────────────────── */
+@media (max-width: 575px) {
+  .hero-content {
+    padding: var(--space-md);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+}

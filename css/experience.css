@@ -1,0 +1,140 @@
+/* experience.css — Work experience timeline styles */
+
+/* ──────────────────────────────────────────────
+   Timeline container with vertical line
+   ────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  padding-left: var(--space-3xl);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--color-border);
+}
+
+/* ──────────────────────────────────────────────
+   Timeline item
+   ────────────────────────────────────────────── */
+.timeline-item {
+  position: relative;
+  padding-bottom: var(--space-2xl);
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* ──────────────────────────────────────────────
+   Timeline marker (green dot)
+   ────────────────────────────────────────────── */
+.timeline-marker {
+  position: absolute;
+  left: calc(-1 * var(--space-3xl) + 1px);
+  top: var(--space-sm);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-green);
+  border: 3px solid var(--color-bg-primary);
+  z-index: 1;
+}
+
+/* ──────────────────────────────────────────────
+   Timeline content
+   ────────────────────────────────────────────── */
+.timeline-content {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--space-xl);
+  transition: border-color 0.2s ease;
+}
+
+.timeline-content:hover {
+  border-color: var(--color-border-hover);
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-green);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.timeline-role {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.timeline-company {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* ──────────────────────────────────────────────
+   Timeline details (bullet points)
+   ────────────────────────────────────────────── */
+.timeline-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline-details li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+}
+
+.timeline-details li:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-details li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-green);
+}
+
+/* ──────────────────────────────────────────────
+   Responsive — adjust padding on small screens
+   ────────────────────────────────────────────── */
+@media (max-width: 575px) {
+  .timeline {
+    padding-left: var(--space-2xl);
+  }
+
+  .timeline-marker {
+    width: 18px;
+    height: 18px;
+    left: calc(-1 * var(--space-2xl) + 1px);
+  }
+
+  .timeline::before {
+    left: 9px;
+  }
+
+  .timeline-content {
+    padding: var(--space-lg);
+  }
+}

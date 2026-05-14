@@ -1,0 +1,170 @@
+/* layout.css — Container, section layout, and grid utilities */
+
+/* ──────────────────────────────────────────────
+   Section container — constrains content width
+   ────────────────────────────────────────────── */
+.section-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.section-container--centered {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ──────────────────────────────────────────────
+   Section base styles
+   ────────────────────────────────────────────── */
+.section {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+  position: relative;
+}
+
+/* Alternate section backgrounds for visual rhythm */
+.section:nth-child(even) {
+  background-color: var(--color-bg-secondary);
+}
+
+.section:nth-child(odd) {
+  background-color: var(--color-bg-primary);
+}
+
+/* Hero section — full viewport height */
+.section--hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* ──────────────────────────────────────────────
+   Main content — offset for fixed nav
+   ────────────────────────────────────────────── */
+#main-content {
+  padding-top: 60px; /* Height of fixed nav bar */
+}
+
+/* Hero section compensates for the main padding-top */
+.section--hero {
+  margin-top: -60px;
+  padding-top: 60px;
+}
+
+/* ──────────────────────────────────────────────
+   About section — two-column layout on desktop
+   ────────────────────────────────────────────── */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+/* ──────────────────────────────────────────────
+   Projects grid — responsive grid layout
+   ────────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+/* ──────────────────────────────────────────────
+   Skills grid — flexible wrapping layout
+   ────────────────────────────────────────────── */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+/* ──────────────────────────────────────────────
+   Experience timeline layout
+   ────────────────────────────────────────────── */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+/* ──────────────────────────────────────────────
+   Reusable button styles
+   ────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn--primary {
+  background-color: var(--color-green);
+  color: var(--color-black);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-green-hover);
+}
+
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-border);
+}
+
+.btn--ghost:hover {
+  border-color: var(--color-green);
+  color: var(--color-green);
+}
+
+.btn--large {
+  padding: var(--space-md) var(--space-3xl);
+  font-size: var(--font-size-md);
+}
+
+/* ──────────────────────────────────────────────
+   404 Error page layout — Task 4-8
+   ────────────────────────────────────────────── */
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.error-code {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-5xl);
+  font-weight: 800;
+  color: var(--color-green);
+  line-height: 1;
+  margin-bottom: var(--space-md);
+}
+
+.error-message {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2xl);
+}
