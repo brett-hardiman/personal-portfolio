@@ -1,5 +1,4 @@
-// main.js — Main entry point for Brett Hardiman Personal Portfolio
-// Full implementation: Task 3-6 (integration and verification)
+// main.js — Entry point. Imports and initializes all feature modules.
 
 import { initScrollProgress } from './scroll-progress.js';
 import { initScrollReveal } from './scroll-reveal.js';

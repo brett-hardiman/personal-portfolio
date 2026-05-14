@@ -57,7 +57,6 @@
    Nav links
    ────────────────────────────────────────────── */
 .nav-list {
-  display: none;
   flex-direction: column;
   position: absolute;
   top: 60px;
@@ -66,6 +65,11 @@
   background-color: rgba(25, 20, 20, 0.98);
   border-bottom: 1px solid var(--color-border);
   padding: var(--space-md) 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  display: flex;
 }
 
 @supports (backdrop-filter: blur(10px)) {
@@ -77,7 +81,9 @@
 }
 
 .nav-list.is-open {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .nav-link {
@@ -180,6 +186,10 @@
     border-bottom: none;
     padding: 0;
     gap: var(--space-xs);
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
   }
 
   @supports (backdrop-filter: blur(10px)) {

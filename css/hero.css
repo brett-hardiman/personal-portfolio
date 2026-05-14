@@ -1,6 +1,13 @@
 /* hero.css — Hero section styles */
 
 /* ──────────────────────────────────────────────
+   Hero section — overflow hidden for parallax
+   ────────────────────────────────────────────── */
+.section--hero {
+  overflow: hidden;
+}
+
+/* ──────────────────────────────────────────────
    Hero background — CSS-only decorative gradient
    ────────────────────────────────────────────── */
 .hero-bg {
@@ -15,6 +22,44 @@
     radial-gradient(ellipse at 50% 80%, rgba(29, 185, 84, 0.03) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
+}
+
+/* ──────────────────────────────────────────────
+   Parallax decorative elements — Task 3-3
+   ────────────────────────────────────────────── */
+.hero-decorative {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-blob--1 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(29, 185, 84, 0.15) 0%, transparent 70%);
+}
+
+.hero-blob--2 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: 20%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(29, 185, 84, 0.08) 0%, transparent 70%);
+}
+
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(83, 83, 83, 0.4) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.5;
 }
 
 /* ──────────────────────────────────────────────

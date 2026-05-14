@@ -1,2 +1,39 @@
 /* animations.css — Scroll progress, reveal animations, parallax, and card effects */
-/* Full implementation: Phase 3 (Tasks 3-1 through 3-5) */
+
+/* ──────────────────────────────────────────────
+   Scroll progress bar — Task 3-1
+   ────────────────────────────────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--color-green);
+  z-index: 101;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ──────────────────────────────────────────────
+   Scroll-triggered reveal animations — Task 3-2
+   ────────────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
