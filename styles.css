@@ -1,2 +1,25 @@
 /* styles.css — CSS entry point for Brett Hardiman Personal Portfolio */
-/* Module imports will be added by Task 1-2 */
+
+/* Foundation */
+@import 'css/variables.css';
+@import 'css/reset.css';
+@import 'css/typography.css';
+
+/* Layout */
+@import 'css/layout.css';
+@import 'css/nav.css';
+
+/* Sections */
+@import 'css/hero.css';
+@import 'css/about.css';
+@import 'css/skills.css';
+@import 'css/experience.css';
+@import 'css/projects.css';
+@import 'css/testimonials.css';
+@import 'css/education.css';
+@import 'css/contact.css';
+@import 'css/footer.css';
+
+/* Effects and Responsiveness */
+@import 'css/animations.css';
+@import 'css/responsive.css';
