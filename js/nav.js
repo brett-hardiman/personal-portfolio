@@ -19,7 +19,27 @@ export function initNav() {
 /**
  * Tracks which section is currently in view and highlights the
  * corresponding nav link with the .active class.
+ *
+ * Uses a click lock to prevent the IntersectionObserver from
+ * overriding the active state during smooth scroll after a nav click.
  */
+let clickLockTimeout = null;
+let isClickLocked = false;
+
+function setActiveLink(id) {
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => link.classList.remove('active'));
+  const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+  if (activeLink) activeLink.classList.add('active');
+}
+
+function lockClickState(id) {
+  isClickLocked = true;
+  setActiveLink(id);
+  if (clickLockTimeout) clearTimeout(clickLockTimeout);
+  clickLockTimeout = setTimeout(() => { isClickLocked = false; }, 1000);
+}
+
 function initActiveTracking() {
   const sections = document.querySelectorAll('.section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -28,11 +48,10 @@ function initActiveTracking() {
   if (!('IntersectionObserver' in window)) return;
 
   const observer = new IntersectionObserver((entries) => {
+    if (isClickLocked) return;
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-        if (activeLink) activeLink.classList.add('active');
+        setActiveLink(entry.target.id);
       }
     });
   }, { threshold: 0.3, rootMargin: '-60px 0px 0px 0px' });
@@ -86,6 +105,7 @@ function initSmoothScroll() {
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
+        lockClickState(href.substring(1));
         const top = target.offsetTop - navHeight;
         window.scrollTo({ top, behavior: 'smooth' });
       }
