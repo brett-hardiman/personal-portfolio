@@ -1,2 +1,49 @@
 /* footer.css — Footer styles */
-/* Full implementation: Task 2-7 */
+
+/* ──────────────────────────────────────────────
+   Site footer
+   ────────────────────────────────────────────── */
+.site-footer {
+  background-color: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-2xl) 0;
+}
+
+.site-footer .section-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* ──────────────────────────────────────────────
+   Footer text
+   ────────────────────────────────────────────── */
+.footer-copyright,
+.footer-credit {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.footer-credit {
+  font-style: italic;
+}
+
+/* ──────────────────────────────────────────────
+   Footer social links — override margin-top
+   from the shared .social-links class
+   ────────────────────────────────────────────── */
+.site-footer .social-links {
+  margin-top: 0;
+}
+
+/* ──────────────────────────────────────────────
+   Responsive — stack footer on mobile
+   ────────────────────────────────────────────── */
+@media (max-width: 575px) {
+  .site-footer .section-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
