@@ -1,2 +1,75 @@
 /* education.css — Education and certifications section styles */
-/* Full implementation: Task 4-2 */
+
+/* ──────────────────────────────────────────────
+   Education list
+   ────────────────────────────────────────────── */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+/* ──────────────────────────────────────────────
+   Education item — green left border accent
+   ────────────────────────────────────────────── */
+.education-item {
+  border-left: 3px solid var(--color-green);
+  padding-left: var(--space-xl);
+}
+
+.education-degree {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.education-school {
+  color: var(--color-green);
+  font-weight: 500;
+  margin-bottom: var(--space-sm);
+}
+
+.education-detail {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* ──────────────────────────────────────────────
+   Certifications
+   ────────────────────────────────────────────── */
+.certifications {
+  margin-top: var(--space-3xl);
+}
+
+.certification-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.certification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.certification-badge {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: var(--space-xs) var(--space-md);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.certification-badge:hover {
+  border-color: var(--color-green);
+  color: var(--color-text-primary);
+}

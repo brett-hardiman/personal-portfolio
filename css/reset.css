@@ -72,6 +72,18 @@ a {
   text-decoration: none;
 }
 
+/* ──────────────────────────────────────────────
+   Focus styles — Task 4-5 Accessibility
+   ────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 /* Remove animations for reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -99,6 +111,7 @@ a {
   transition: top 0.2s ease;
 }
 
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:focus-visible {
   top: 0;
 }

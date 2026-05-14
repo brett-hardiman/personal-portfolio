@@ -4,10 +4,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brett Hardiman — AI/ML Engineer & Agentic AI Specialist</title>
+
+  <!-- SEO — Task 4-3 -->
+  <meta name="description" content="Brett Hardiman — Business Analyst and AI/ML Product Developer specializing in agentic AI workflows, RAG applications, and LLM-powered tools. View projects and professional background.">
+  <meta name="author" content="Brett Hardiman">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph — Task 4-3 (og:image asset created in Task 4-4) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Brett Hardiman — Business Analyst & AI/ML Product Developer">
+  <meta property="og:description" content="Portfolio showcasing AI/ML projects, agentic workflows, and professional experience at Booz Allen Hamilton.">
+  <meta property="og:url" content="https://brett-hardiman.github.io/personal-portfolio/">
+  <meta property="og:image" content="https://brett-hardiman.github.io/personal-portfolio/assets/images/og-image.png">
+
+  <!-- Twitter Card — Task 4-3 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Brett Hardiman — Business Analyst & AI/ML Product Developer">
+  <meta name="twitter:description" content="Portfolio showcasing AI/ML projects and agentic AI workflows.">
+  <meta name="twitter:image" content="https://brett-hardiman.github.io/personal-portfolio/assets/images/og-image.png">
+
+  <!-- Theme color — Task 4-3 -->
+  <meta name="theme-color" content="#191414">
+
+  <!-- Favicon — Task 4-4 -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Graceful degradation when JS is disabled — Task 3-6 -->
   <noscript>
     <style>
       [data-reveal] { opacity: 1 !important; transform: none !important; }
@@ -40,9 +71,9 @@
 
   <main id="main-content">
 
-    <!-- ═══════════════════════════════════════════
-         HERO SECTION — Task 2-1
-         ═══════════════════════════════════════════ -->
+    <!-- =============================================
+         HERO SECTION
+         ============================================= -->
     <section id="hero" class="section section--hero">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-decorative" aria-hidden="true">
@@ -62,9 +93,9 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         ABOUT SECTION — Task 2-2
-         ═══════════════════════════════════════════ -->
+    <!-- =============================================
+         ABOUT SECTION
+         ============================================= -->
     <section id="about" class="section" data-section-number="01">
       <div class="section-container">
         <span class="section-number">01</span>
@@ -76,15 +107,15 @@
             <p>Today I build AI-powered agents that automate roadmap generation, Jira issue creation, requirements authoring, and sprint summarization. I bridge the gap between AI/ML engineering teams and business stakeholders, translating complex technical capabilities into products that deliver measurable impact. I hold a B.S. in Computer Information Systems from the College of Charleston.</p>
           </div>
           <div class="about-image" data-reveal>
-            <img src="assets/images/headshot.jpg" alt="Brett Hardiman" loading="lazy" class="about-headshot">
+            <img src="assets/images/headshot.jpg" alt="Brett Hardiman" loading="lazy" decoding="async" width="300" height="400" class="about-headshot">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SKILLS SECTION — Task 2-3
-         ═══════════════════════════════════════════ -->
+    <!-- =============================================
+         SKILLS SECTION
+         ============================================= -->
     <section id="skills" class="section" data-section-number="02">
       <div class="section-container">
         <span class="section-number">02</span>
@@ -134,9 +165,9 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         EXPERIENCE SECTION — Task 2-4
-         ═══════════════════════════════════════════ -->
+    <!-- =============================================
+         EXPERIENCE SECTION
+         ============================================= -->
     <section id="experience" class="section" data-section-number="03">
       <div class="section-container">
         <span class="section-number">03</span>
@@ -176,9 +207,9 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         PROJECTS SECTION — Task 2-5
-         ═══════════════════════════════════════════ -->
+    <!-- =============================================
+         PROJECTS SECTION
+         ============================================= -->
     <section id="projects" class="section" data-section-number="04">
       <div class="section-container">
         <span class="section-number">04</span>
@@ -186,7 +217,7 @@
         <div class="projects-grid">
           <div class="project-card" data-reveal>
             <div class="project-card-image">
-              <img src="assets/images/project-placeholder.svg" alt="Local LLM App screenshot" loading="lazy">
+              <img src="assets/images/project-placeholder.svg" alt="Local LLM App screenshot" loading="lazy" decoding="async" width="800" height="450">
             </div>
             <div class="project-card-content">
               <h3 class="project-card-title">Local LLM App</h3>
@@ -204,7 +235,7 @@
           </div>
           <div class="project-card" data-reveal>
             <div class="project-card-image">
-              <img src="assets/images/project-placeholder.svg" alt="AI Agent Pipeline Portfolio screenshot" loading="lazy">
+              <img src="assets/images/project-placeholder.svg" alt="AI Agent Pipeline Portfolio screenshot" loading="lazy" decoding="async" width="800" height="450">
             </div>
             <div class="project-card-content">
               <h3 class="project-card-title">AI Agent Pipeline Portfolio</h3>
@@ -227,23 +258,61 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
+    <!-- =============================================
          TESTIMONIALS SECTION — Task 4-1
-         ═══════════════════════════════════════════ -->
-    <section id="testimonials" class="section" data-section-number="05">
-      <!-- Testimonials content — Task 4-1 -->
+         Hidden by default. To activate: remove the
+         "section--hidden" class from this section.
+         ============================================= -->
+    <section id="testimonials" class="section section--hidden" data-section-number="05">
+      <div class="section-container">
+        <span class="section-number">05</span>
+        <h2 class="section-title">What Colleagues Say</h2>
+        <div class="testimonials-grid">
+          <blockquote class="testimonial-card" data-reveal>
+            <p class="testimonial-quote">"[Testimonial text placeholder — replace with actual quote.]"</p>
+            <footer class="testimonial-author">
+              <cite class="testimonial-name">Colleague Name</cite>
+              <span class="testimonial-role">Role, Company</span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial-card" data-reveal data-reveal-delay="100">
+            <p class="testimonial-quote">"[Testimonial text placeholder — replace with actual quote.]"</p>
+            <footer class="testimonial-author">
+              <cite class="testimonial-name">Colleague Name</cite>
+              <span class="testimonial-role">Role, Company</span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
+    <!-- =============================================
          EDUCATION SECTION — Task 4-2
-         ═══════════════════════════════════════════ -->
+         ============================================= -->
     <section id="education" class="section" data-section-number="06">
-      <!-- Education content — Task 4-2 -->
+      <div class="section-container">
+        <span class="section-number">06</span>
+        <h2 class="section-title">Education &amp; Certifications</h2>
+        <div class="education-list">
+          <div class="education-item" data-reveal>
+            <h3 class="education-degree">Bachelor of Science in Computer Information Systems</h3>
+            <p class="education-school">College of Charleston · Charleston, SC</p>
+            <p class="education-detail">2017 – 2021</p>
+          </div>
+        </div>
+        <div class="certifications" data-reveal>
+          <h3 class="certification-title">Certifications</h3>
+          <ul class="certification-list">
+            <li class="certification-badge">Certified Scrum Product Owner (CSPO)</li>
+            <li class="certification-badge">Certified Scrum Master (CSM)</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         CONTACT SECTION — Task 2-6
-         ═══════════════════════════════════════════ -->
+    <!-- =============================================
+         CONTACT SECTION
+         ============================================= -->
     <section id="contact" class="section" data-section-number="07">
       <div class="section-container section-container--centered" data-reveal>
         <span class="section-number">07</span>
@@ -265,9 +334,9 @@
 
   </main>
 
-  <!-- ═══════════════════════════════════════════
-       FOOTER — Task 2-7
-       ═══════════════════════════════════════════ -->
+  <!-- =============================================
+       FOOTER
+       ============================================= -->
   <footer class="site-footer">
     <div class="section-container">
       <p class="footer-copyright">&copy; 2026 Brett Hardiman</p>
