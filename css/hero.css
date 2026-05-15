@@ -79,6 +79,13 @@
   color: var(--color-green);
   margin-bottom: var(--space-sm);
   letter-spacing: 0.1em;
+  overflow: hidden;
+  border-right: 2px solid var(--color-green);
+  white-space: nowrap;
+  width: 0;
+  margin-left: auto;
+  margin-right: auto;
+  animation: typing-greeting 0.8s steps(10) 0.5s forwards, blink-caret 0.5s step-end 0.5s 5;
 }
 
 .hero-name {
@@ -88,6 +95,13 @@
   color: var(--color-text-primary);
   line-height: 1.1;
   margin-bottom: var(--space-md);
+  overflow: hidden;
+  border-right: 3px solid var(--color-green);
+  white-space: nowrap;
+  width: 0;
+  margin-left: auto;
+  margin-right: auto;
+  animation: typing-name 1s steps(14) 1.6s forwards, blink-caret 0.5s step-end 1.6s 5;
 }
 
 .hero-title {
@@ -96,6 +110,8 @@
   font-weight: 300;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-md);
+  opacity: 0;
+  animation: hero-fade-in 0.6s ease 3s forwards;
 }
 
 .hero-separator {
@@ -109,6 +125,8 @@
   color: var(--color-text-muted);
   margin-bottom: var(--space-2xl);
   line-height: 1.6;
+  opacity: 0;
+  animation: hero-fade-in 0.6s ease 3.3s forwards;
 }
 
 /* ──────────────────────────────────────────────
@@ -119,6 +137,48 @@
   gap: var(--space-md);
   justify-content: center;
   flex-wrap: wrap;
+  opacity: 0;
+  animation: hero-fade-in 0.6s ease 3.6s forwards;
+}
+
+/* ──────────────────────────────────────────────
+   Typing animation keyframes
+   ────────────────────────────────────────────── */
+@keyframes typing-greeting {
+  from { width: 0; }
+  to { width: 12ch; border-right-color: transparent; }
+}
+
+@keyframes typing-name {
+  from { width: 0; }
+  to { width: 15ch; border-right-color: transparent; }
+}
+
+@keyframes blink-caret {
+  50% { border-color: transparent; }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-greeting,
+  .hero-name {
+    width: auto;
+    overflow: visible;
+    border-right: none;
+    animation: none;
+    display: block;
+  }
+  .hero-title,
+  .hero-tagline,
+  .hero-cta {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 /* ──────────────────────────────────────────────
