@@ -16,10 +16,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(29, 185, 84, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(29, 185, 84, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(29, 185, 84, 0.03) 0%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -41,7 +37,7 @@
   top: -100px;
   right: -100px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(29, 185, 84, 0.15) 0%, transparent 70%);
+  background: rgba(29, 185, 84, 0.08);
 }
 
 .hero-blob--2 {
@@ -51,7 +47,7 @@
   bottom: -50px;
   left: 20%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(29, 185, 84, 0.08) 0%, transparent 70%);
+  background: rgba(29, 185, 84, 0.06);
 }
 
 .hero-dots {
