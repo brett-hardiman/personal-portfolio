@@ -52,10 +52,10 @@
   <!-- Hero content -->
   <text x="60" y="148" font-family="system-ui, sans-serif" font-size="13" fill="#1DB954">Hello, I'm</text>
   <text x="60" y="208" font-family="system-ui, sans-serif" font-size="52" font-weight="800" fill="#FFFFFF">Brett Hardiman</text>
-  <text x="60" y="240" font-family="system-ui, sans-serif" font-size="16" fill="#B3B3B3">Business Analyst</text>
-  <text x="194" y="240" font-family="system-ui, sans-serif" font-size="16" fill="#727272">|</text>
-  <text x="206" y="240" font-family="system-ui, sans-serif" font-size="16" fill="#B3B3B3">AI/ML Product Developer</text>
-  <text x="60" y="272" font-family="system-ui, sans-serif" font-size="13" fill="#727272">Building intelligent agents that transform how teams work.</text>
+  <text x="60" y="240" font-family="system-ui, sans-serif" font-size="16" fill="#B3B3B3">AI/ML Product Owner</text>
+  <text x="216" y="240" font-family="system-ui, sans-serif" font-size="16" fill="#727272">|</text>
+  <text x="228" y="240" font-family="system-ui, sans-serif" font-size="16" fill="#B3B3B3">AI Engineer</text>
+  <text x="60" y="272" font-family="system-ui, sans-serif" font-size="13" fill="#727272">Using AI to work smarter, build faster, and never stop learning.</text>
 
   <!-- CTA buttons -->
   <rect x="60" y="294" width="140" height="40" rx="20" fill="#1DB954"/>

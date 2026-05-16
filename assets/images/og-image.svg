@@ -3,8 +3,8 @@
   <rect width="1200" height="630" fill="#191414"/>
   <rect x="0" y="600" width="1200" height="30" fill="#1DB954"/>
   <text x="100" y="260" font-family="Montserrat, system-ui, sans-serif" font-size="64" font-weight="800" fill="#FFFFFF">Brett Hardiman</text>
-  <text x="100" y="330" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="300" fill="#B3B3B3">Business Analyst &amp; AI/ML Product Developer</text>
-  <text x="100" y="400" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#727272">Building intelligent agents that transform how teams work.</text>
+  <text x="100" y="330" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="300" fill="#B3B3B3">AI/ML Product Owner &amp; AI Engineer</text>
+  <text x="100" y="400" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#727272">Using AI to work smarter, build faster, and never stop learning.</text>
   <circle cx="1050" cy="300" r="120" fill="none" stroke="#1DB954" stroke-width="2" opacity="0.3"/>
   <circle cx="1080" cy="340" r="80" fill="none" stroke="#1DB954" stroke-width="1.5" opacity="0.2"/>
 </svg>

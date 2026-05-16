@@ -12,7 +12,7 @@
 
 Most portfolios are interesting because of the person they showcase. This one is interesting for two reasons.
 
-**Project 1:** A polished, production-quality personal portfolio website for Brett Hardiman — a Business Analyst and AI/ML Product Developer based in South Carolina. Styled after Spotify's dark design language. Fully accessible, responsive from 320px to 1440px, and SEO-optimized.
+**Project 1:** A polished, production-quality personal portfolio website for Brett Hardiman — an AI/ML Product Owner and AI Engineer based in South Carolina. Styled after Spotify's dark design language. Fully accessible, responsive from 320px to 1440px, and SEO-optimized.
 
 **Project 2:** A live demonstration of an 8-agent AI development pipeline built with Claude Code. Every line of code on this site — every HTML element, CSS variable, and JavaScript module — was planned, implemented, reviewed, and deployed by a coordinated team of AI agents. The agents handed work to each other, ran tasks in parallel when possible, and enforced code review gates before anything was merged.
 
@@ -22,7 +22,7 @@ This README was written by one of those agents. The meta is intentional.
 
 ## The Portfolio Website
 
-Brett Hardiman is a Business Analyst and AI/ML Product Developer who spent 2.5 years at Booz Allen Hamilton, progressing from requirements engineering into leading 4 AI product initiatives from concept through MVP. He previously worked as a Business Analyst at Johnson & Johnson Insurance, holds a B.S. in Computer Information Systems from the College of Charleston, and carries CSPO (Certified Scrum Product Owner) and CSM (Certified Scrum Master) certifications.
+Brett Hardiman is an AI/ML Product Owner and AI Engineer who spent 2.5 years at Booz Allen Hamilton, progressing from requirements engineering into leading 4 AI product initiatives from concept through MVP. He previously worked as a Business Analyst at Johnson & Johnson Insurance, holds a B.S. in Computer Information Systems from the College of Charleston, and carries CSPO (Certified Scrum Product Owner) and CSM (Certified Scrum Master) certifications.
 
 ### What You See When You Visit
 
