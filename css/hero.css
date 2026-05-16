@@ -157,7 +157,7 @@
    ────────────────────────────────────────────── */
 @keyframes typing-greeting {
   from { width: 0; }
-  to { width: 11ch; border-right-color: transparent; }
+  to { width: 12ch; border-right-color: transparent; }
 }
 
 @keyframes typing-name {
