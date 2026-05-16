@@ -8,116 +8,68 @@
   <circle cx="20" cy="16" r="6" fill="#FF5F57"/>
   <circle cx="40" cy="16" r="6" fill="#FEBC2E"/>
   <circle cx="60" cy="16" r="6" fill="#28C840"/>
-  <text x="400" y="20" text-anchor="middle" font-family="monospace" font-size="11" fill="#727272">claude-code — personal-portfolio</text>
+  <text x="400" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#727272">brett-hardiman.github.io/personal-portfolio</text>
 
-  <!-- Terminal content area -->
-  <rect x="16" y="44" width="768" height="394" rx="4" fill="#121212"/>
+  <!-- Site nav bar -->
+  <rect x="0" y="32" width="800" height="44" fill="#121212"/>
+  <rect x="0" y="76" width="800" height="1" fill="#232323"/>
+  <text x="24" y="60" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Brett Hardiman</text>
 
-  <!-- Terminal header line -->
-  <text x="28" y="68" font-family="monospace" font-size="12" fill="#1DB954">$</text>
-  <text x="44" y="68" font-family="monospace" font-size="12" fill="#FFFFFF"> claude --team project-manager</text>
+  <!-- Nav links -->
+  <text x="468" y="60" font-family="system-ui, sans-serif" font-size="11" fill="#B3B3B3">About</text>
+  <text x="514" y="60" font-family="system-ui, sans-serif" font-size="11" fill="#B3B3B3">Skills</text>
+  <text x="558" y="60" font-family="system-ui, sans-serif" font-size="11" fill="#B3B3B3">Experience</text>
+  <text x="628" y="60" font-family="system-ui, sans-serif" font-size="11" fill="#1DB954">Projects</text>
+  <text x="682" y="60" font-family="system-ui, sans-serif" font-size="11" fill="#B3B3B3">Testimonials</text>
+  <text x="758" y="60" font-family="system-ui, sans-serif" font-size="11" fill="#B3B3B3">Contact</text>
 
-  <!-- Agent pipeline visualization -->
-  <text x="28" y="100" font-family="monospace" font-size="11" fill="#727272">Spawning 8-agent pipeline...</text>
+  <!-- Scroll progress bar -->
+  <rect x="0" y="77" width="320" height="2" fill="#1DB954"/>
 
-  <!-- Agent boxes row 1 -->
-  <!-- Solution Architect -->
-  <rect x="40" y="118" width="150" height="52" rx="6" fill="#232323" stroke="#1DB954" stroke-width="1.5"/>
-  <text x="115" y="140" text-anchor="middle" font-family="monospace" font-size="9" fill="#1DB954">01</text>
-  <text x="115" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">Solution Architect</text>
+  <!-- Decorative blobs -->
+  <circle cx="120" cy="180" r="110" fill="#1DB954" opacity="0.08"/>
+  <circle cx="680" cy="320" r="140" fill="#1DB954" opacity="0.06"/>
 
-  <!-- Arrow -->
-  <line x1="190" y1="144" x2="220" y2="144" stroke="#333" stroke-width="1.5"/>
-  <polygon points="218,140 226,144 218,148" fill="#333"/>
+  <!-- Dot grid pattern -->
+  <g fill="#333" opacity="0.5">
+    <circle cx="640" cy="120" r="1.5"/>
+    <circle cx="660" cy="120" r="1.5"/>
+    <circle cx="680" cy="120" r="1.5"/>
+    <circle cx="700" cy="120" r="1.5"/>
+    <circle cx="720" cy="120" r="1.5"/>
+    <circle cx="640" cy="140" r="1.5"/>
+    <circle cx="660" cy="140" r="1.5"/>
+    <circle cx="680" cy="140" r="1.5"/>
+    <circle cx="700" cy="140" r="1.5"/>
+    <circle cx="720" cy="140" r="1.5"/>
+    <circle cx="640" cy="160" r="1.5"/>
+    <circle cx="660" cy="160" r="1.5"/>
+    <circle cx="680" cy="160" r="1.5"/>
+    <circle cx="700" cy="160" r="1.5"/>
+    <circle cx="720" cy="160" r="1.5"/>
+  </g>
 
-  <!-- Requirements Agent -->
-  <rect x="228" y="118" width="150" height="52" rx="6" fill="#232323" stroke="#1DB954" stroke-width="1.5"/>
-  <text x="303" y="140" text-anchor="middle" font-family="monospace" font-size="9" fill="#1DB954">02</text>
-  <text x="303" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">Requirements Agent</text>
+  <!-- Hero content -->
+  <text x="60" y="148" font-family="system-ui, sans-serif" font-size="13" fill="#1DB954">Hello, I'm</text>
+  <text x="60" y="208" font-family="system-ui, sans-serif" font-size="52" font-weight="800" fill="#FFFFFF">Brett Hardiman</text>
+  <text x="60" y="240" font-family="system-ui, sans-serif" font-size="16" fill="#B3B3B3">Business Analyst</text>
+  <text x="194" y="240" font-family="system-ui, sans-serif" font-size="16" fill="#727272">|</text>
+  <text x="206" y="240" font-family="system-ui, sans-serif" font-size="16" fill="#B3B3B3">AI/ML Product Developer</text>
+  <text x="60" y="272" font-family="system-ui, sans-serif" font-size="13" fill="#727272">Building intelligent agents that transform how teams work.</text>
 
-  <!-- Arrow -->
-  <line x1="378" y1="144" x2="408" y2="144" stroke="#333" stroke-width="1.5"/>
-  <polygon points="406,140 414,144 406,148" fill="#333"/>
+  <!-- CTA buttons -->
+  <rect x="60" y="294" width="140" height="40" rx="20" fill="#1DB954"/>
+  <text x="130" y="319" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#191414">View My Work</text>
 
-  <!-- Project Manager -->
-  <rect x="416" y="118" width="150" height="52" rx="6" fill="#232323" stroke="#1DB954" stroke-width="1.5"/>
-  <text x="491" y="140" text-anchor="middle" font-family="monospace" font-size="9" fill="#1DB954">03</text>
-  <text x="491" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">Project Manager</text>
+  <rect x="212" y="294" width="170" height="40" rx="20" fill="transparent" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="297" y="319" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Connect on LinkedIn</text>
 
-  <!-- Arrow -->
-  <line x1="566" y1="144" x2="596" y2="144" stroke="#333" stroke-width="1.5"/>
-  <polygon points="594,140 602,144 594,148" fill="#333"/>
+  <!-- Next section preview (fading in) -->
+  <rect x="0" y="370" width="800" height="1" fill="#232323"/>
+  <text x="60" y="402" font-family="monospace" font-size="11" fill="#1DB954">01</text>
+  <text x="60" y="428" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF" opacity="0.85">About Me</text>
 
-  <!-- Coding Agent -->
-  <rect x="604" y="118" width="150" height="52" rx="6" fill="#232323" stroke="#1DB954" stroke-width="1.5"/>
-  <text x="679" y="140" text-anchor="middle" font-family="monospace" font-size="9" fill="#1DB954">04</text>
-  <text x="679" y="158" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">Coding Agent</text>
-
-  <!-- Agent boxes row 2 -->
-  <!-- Arrow down from Coding Agent -->
-  <line x1="679" y1="170" x2="679" y2="198" stroke="#333" stroke-width="1.5"/>
-  <polygon points="675,196 679,204 683,196" fill="#333"/>
-
-  <!-- Code Review -->
-  <rect x="604" y="206" width="150" height="52" rx="6" fill="#232323" stroke="#E07C3E" stroke-width="1.5"/>
-  <text x="679" y="228" text-anchor="middle" font-family="monospace" font-size="9" fill="#E07C3E">05</text>
-  <text x="679" y="246" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">Code Review</text>
-
-  <!-- Arrow left -->
-  <line x1="604" y1="232" x2="574" y2="232" stroke="#333" stroke-width="1.5"/>
-  <polygon points="576,228 568,232 576,236" fill="#333"/>
-
-  <!-- Security Review -->
-  <rect x="416" y="206" width="150" height="52" rx="6" fill="#232323" stroke="#E07C3E" stroke-width="1.5"/>
-  <text x="491" y="228" text-anchor="middle" font-family="monospace" font-size="9" fill="#E07C3E">06</text>
-  <text x="491" y="246" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">Security Review</text>
-
-  <!-- Arrow left -->
-  <line x1="416" y1="232" x2="386" y2="232" stroke="#333" stroke-width="1.5"/>
-  <polygon points="388,228 380,232 388,236" fill="#333"/>
-
-  <!-- CI/CD Agent -->
-  <rect x="228" y="206" width="150" height="52" rx="6" fill="#232323" stroke="#D4A843" stroke-width="1.5"/>
-  <text x="303" y="228" text-anchor="middle" font-family="monospace" font-size="9" fill="#D4A843">07</text>
-  <text x="303" y="246" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">CI/CD Integration</text>
-
-  <!-- Arrow left -->
-  <line x1="228" y1="232" x2="198" y2="232" stroke="#333" stroke-width="1.5"/>
-  <polygon points="200,228 192,232 200,236" fill="#333"/>
-
-  <!-- Summary Agent -->
-  <rect x="40" y="206" width="150" height="52" rx="6" fill="#232323" stroke="#D4A843" stroke-width="1.5"/>
-  <text x="115" y="228" text-anchor="middle" font-family="monospace" font-size="9" fill="#D4A843">08</text>
-  <text x="115" y="246" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">Project Summary</text>
-
-  <!-- Status output -->
-  <rect x="28" y="280" width="744" height="1" fill="#333"/>
-
-  <text x="28" y="304" font-family="monospace" font-size="11" fill="#1DB954">Phase 1</text>
-  <text x="100" y="304" font-family="monospace" font-size="11" fill="#727272">Foundation &amp; Layout</text>
-  <text x="680" y="304" font-family="monospace" font-size="11" fill="#1DB954">DONE</text>
-  <rect x="340" y="296" width="320" height="12" rx="6" fill="#232323"/>
-  <rect x="340" y="296" width="320" height="12" rx="6" fill="#1DB954"/>
-
-  <text x="28" y="326" font-family="monospace" font-size="11" fill="#1DB954">Phase 2</text>
-  <text x="100" y="326" font-family="monospace" font-size="11" fill="#727272">Content Sections</text>
-  <text x="680" y="326" font-family="monospace" font-size="11" fill="#1DB954">DONE</text>
-  <rect x="340" y="318" width="320" height="12" rx="6" fill="#232323"/>
-  <rect x="340" y="318" width="320" height="12" rx="6" fill="#1DB954"/>
-
-  <text x="28" y="348" font-family="monospace" font-size="11" fill="#1DB954">Phase 3</text>
-  <text x="100" y="348" font-family="monospace" font-size="11" fill="#727272">Animations &amp; Interactivity</text>
-  <text x="680" y="348" font-family="monospace" font-size="11" fill="#1DB954">DONE</text>
-  <rect x="340" y="340" width="320" height="12" rx="6" fill="#232323"/>
-  <rect x="340" y="340" width="320" height="12" rx="6" fill="#1DB954"/>
-
-  <text x="28" y="370" font-family="monospace" font-size="11" fill="#1DB954">Phase 4</text>
-  <text x="100" y="370" font-family="monospace" font-size="11" fill="#727272">Polish, SEO &amp; Nice-to-Haves</text>
-  <text x="680" y="370" font-family="monospace" font-size="11" fill="#1DB954">DONE</text>
-  <rect x="340" y="362" width="320" height="12" rx="6" fill="#232323"/>
-  <rect x="340" y="362" width="320" height="12" rx="6" fill="#1DB954"/>
-
-  <!-- Final status -->
-  <text x="28" y="410" font-family="monospace" font-size="12" fill="#1DB954">&#10003; All 26 tasks complete. Site ready for deployment.</text>
-  <text x="28" y="428" font-family="monospace" font-size="11" fill="#727272">brett-hardiman.github.io/personal-portfolio</text>
+  <!-- Scroll indicator on right -->
+  <circle cx="752" cy="408" r="14" fill="transparent" stroke="#333" stroke-width="1"/>
+  <polyline points="746,404 752,412 758,404" stroke="#1DB954" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
