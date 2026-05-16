@@ -94,6 +94,7 @@
   width: 0;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
   animation: typing-greeting 0.8s steps(10) 0.5s forwards, blink-caret 0.5s step-end 0.5s 5;
 }
 
@@ -110,6 +111,7 @@
   width: 0;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
   animation: typing-name 1s steps(14) 1.6s forwards, blink-caret 0.5s step-end 1.6s 5;
 }
 
@@ -155,12 +157,12 @@
    ────────────────────────────────────────────── */
 @keyframes typing-greeting {
   from { width: 0; }
-  to { width: 12ch; border-right-color: transparent; }
+  to { width: 11ch; border-right-color: transparent; }
 }
 
 @keyframes typing-name {
   from { width: 0; }
-  to { width: 15ch; border-right-color: transparent; }
+  to { width: 13ch; border-right-color: transparent; }
 }
 
 @keyframes blink-caret {
