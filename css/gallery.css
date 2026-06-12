@@ -112,16 +112,37 @@
   pointer-events: none;
 }
 
-/* The hero section fills the canvas */
+/* The hero section fills the canvas — override layout.css defaults
+   (the existing rules assume hero is inside #main-content with 60px padding) */
 #gallery-canvas > .section--hero {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   min-height: unset;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Main content offsets: without hero as its first child, kill the 60px
+   padding-top — the site header is hidden during gallery phase anyway,
+   and once it appears it overlays content (not pushes it) */
+#main-content {
+  padding-top: 0;
+}
+
+/* The alternating section backgrounds in layout.css use :nth-child(odd|even).
+   Hero used to be #1; About was #2 (secondary bg). Now About is #1 (primary).
+   Re-anchor the rhythm so the original color order is preserved. */
+#main-content > .section:nth-child(odd) {
+  background-color: var(--color-bg-secondary);
+}
+#main-content > .section:nth-child(even) {
+  background-color: var(--color-bg-primary);
 }
 
 @media (max-height: 700px) {
@@ -140,14 +161,19 @@
 
 /* ──────────────────────────────────────────────
    Hero content — hidden during gallery phase
+   Use higher-specificity selectors so this wins against
+   animations.css [data-reveal] / .revealed rules. We also
+   removed data-reveal from .hero-content in index.html so
+   scroll-reveal.js doesn't fight for control.
    ────────────────────────────────────────────── */
-.hero-content {
+#gallery-canvas .hero-content {
   opacity: 0;
   pointer-events: none;
+  transform: none;
   transition: opacity 1.4s cubic-bezier(0.33, 0, 0.2, 1);
 }
 
-.hero-content.gallery-revealed {
+#gallery-canvas .hero-content.gallery-revealed {
   opacity: 1;
   pointer-events: auto;
 }
