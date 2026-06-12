@@ -132,11 +132,11 @@ function initGallery() {
   }
 }
 
-// Auto-init on DOM ready — index.html loads this as a module directly.
+// Auto-init on DOM ready. Loaded as a plain (non-module) script so it
+// also runs when index.html is opened directly via file:// — modules
+// fail to import over file:// in Chrome.
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initGallery);
 } else {
   initGallery();
 }
-
-export { initGallery };
