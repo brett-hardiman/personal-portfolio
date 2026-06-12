@@ -35,8 +35,91 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
+  <!-- Detect embedded-in-gallery mode at parse time so we can hide the
+       hero text + nav bar before first paint (no FOUC). The gallery
+       shell posts 'gallery-reveal' / 'gallery-hide' messages to drive
+       the reveal once the zoom completes. -->
+  <script>
+    if (new URLSearchParams(location.search).has('embedded')) {
+      document.documentElement.classList.add('gallery-embedded');
+    }
+    window.addEventListener('message', function (e) {
+      if (e.data === 'gallery-reveal') {
+        document.documentElement.classList.add('gallery-revealed');
+      } else if (e.data === 'gallery-hide') {
+        document.documentElement.classList.remove('gallery-revealed');
+      }
+    });
+  </script>
+
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Gallery-embedded mode overrides. Inlined here (rather than in an
+       external .css) so they ride along with portfolio.html itself and
+       can't get stuck in browser cache while the shell is iterating. -->
+  <style>
+    /* Hide the nav and hero text/buttons inside the iframe until the
+       parent shell signals reveal. Mesh + decorative blobs stay
+       visible — they ARE the artwork in the frame. */
+    .gallery-embedded .site-header {
+      opacity: 0 !important;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+    .gallery-embedded.gallery-revealed .site-header {
+      opacity: 1 !important;
+      pointer-events: auto;
+    }
+
+    .gallery-embedded .hero-content {
+      opacity: 0 !important;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+    /* Hide greeting + name without !important on width — the keyframe
+       'to' value (13ch) must win during the typing animation. The base
+       hero.css already sets width:0 with the same specificity, and we
+       beat that by being defined later in the cascade. */
+    .gallery-embedded .hero-greeting,
+    .gallery-embedded .hero-name {
+      animation: none !important;
+      width: 0;
+      border-right-color: transparent !important;
+    }
+    /* No !important on opacity — the hero-fade-in keyframe needs to
+       drive it from 0 to 1 once .gallery-revealed adds the animation. */
+    .gallery-embedded .hero-title,
+    .gallery-embedded .hero-tagline,
+    .gallery-embedded .hero-cta {
+      animation: none !important;
+      opacity: 0;
+    }
+
+    .gallery-embedded.gallery-revealed .hero-content {
+      opacity: 1 !important;
+      pointer-events: auto;
+    }
+    .gallery-embedded.gallery-revealed .hero-greeting {
+      animation: typing-greeting 0.8s steps(10) 0.4s forwards,
+                 blink-caret 0.5s step-end 0.4s 5 !important;
+      border-right-color: var(--color-green) !important;
+    }
+    .gallery-embedded.gallery-revealed .hero-name {
+      animation: typing-name 1s steps(14) 1.4s forwards,
+                 blink-caret 0.5s step-end 1.4s 5 !important;
+      border-right-color: var(--color-green) !important;
+    }
+    .gallery-embedded.gallery-revealed .hero-title {
+      animation: hero-fade-in 0.6s ease 2.7s forwards !important;
+    }
+    .gallery-embedded.gallery-revealed .hero-tagline {
+      animation: hero-fade-in 0.6s ease 3.0s forwards !important;
+    }
+    .gallery-embedded.gallery-revealed .hero-cta {
+      animation: hero-fade-in 0.6s ease 3.3s forwards !important;
+    }
+  </style>
 
   <!-- Graceful degradation when JS is disabled — Task 3-6 -->
   <noscript>

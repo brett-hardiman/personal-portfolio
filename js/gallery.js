@@ -44,6 +44,12 @@ function initGallery() {
   let current = 0;
   let animating = false;
   let iframeInteractive = false;
+  let revealedInIframe = false;
+
+  function postToIframe(msg) {
+    try { iframe.contentWindow && iframe.contentWindow.postMessage(msg, '*'); }
+    catch (e) { /* iframe not ready yet — next tick will retry */ }
+  }
 
   function computeTarget() {
     const total = track.offsetHeight - window.innerHeight;
@@ -82,6 +88,18 @@ function initGallery() {
     } else if (iframeInteractive && p < 0.85) {
       iframeInteractive = false;
       iframe.style.pointerEvents = 'none';
+    }
+
+    // Reveal hero text + nav inside the iframe slightly BEFORE pointer
+    // events flip, so the typing animation finishes during the dwell and
+    // the user lands on a fully-populated portfolio. Hysteresis at 0.78
+    // so a small scroll-back doesn't snap content away.
+    if (!revealedInIframe && p >= 0.88) {
+      revealedInIframe = true;
+      postToIframe('gallery-reveal');
+    } else if (revealedInIframe && p < 0.78) {
+      revealedInIframe = false;
+      postToIframe('gallery-hide');
     }
 
     // Return chip appears once zoom is essentially done

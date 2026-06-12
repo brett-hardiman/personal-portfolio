@@ -175,6 +175,9 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* (Gallery-embedded rules live inline in portfolio.html so they ship
+    with the page itself — no separate stylesheet to cache-bust.) */
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .hero-greeting,
