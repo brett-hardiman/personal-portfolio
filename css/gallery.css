@@ -272,13 +272,16 @@ body {
   padding: clamp(24px, 4vh, 40px) 24px 0;
 }
 
+/* Note: no CSS entry animations on header/scroll-hint. They would set
+   a keyframe-driven opacity that overrides the inline opacity gallery.js
+   uses to fade them out during the zoom. The fade-in feel comes for
+   free from the gallery shell loading instantly. */
 .gallery-header-label {
   font-size: 10px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--gallery-cream);
   margin: 0;
-  animation: gallery-fade-rise 0.8s ease-out both;
 }
 
 .gallery-header-title {
@@ -288,7 +291,6 @@ body {
   color: var(--gallery-cream-light);
   margin: 8px 0 0;
   letter-spacing: -0.5px;
-  animation: gallery-fade-rise 0.8s ease-out 0.2s both;
 }
 
 /* ──────────────────────────────────────────────
@@ -308,7 +310,6 @@ body {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gallery-cream);
-  animation: gallery-fade-rise 0.8s ease-out 0.4s both;
 }
 
 .gallery-scroll-line {

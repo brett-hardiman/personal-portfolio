@@ -14,7 +14,9 @@
 //   0.95+         Iframe becomes interactive, return chip appears
 
 const INITIAL_SCALE = 0.42;
-const FINAL_SCALE = 1.06; // overscan so frame edges leave the viewport
+// Small overscan (0.5%) to clip subpixel gilt slivers without cutting
+// the iframe's nav bar off the top.
+const FINAL_SCALE = 1.005;
 const SMOOTHING = 0.09;   // inertial glide factor
 
 function initGallery() {
