@@ -60,6 +60,37 @@ function initGallery() {
     }
   });
 
+  // Forward cursor position into the iframe so the neural mesh reacts
+  // to the user's mouse even in gallery view (where pointer-events on
+  // the iframe is 'none'). Once the iframe is interactive (full zoom),
+  // the iframe captures mousemove natively and this listener doesn't
+  // fire for events inside its area — no conflict.
+  function forwardMouse(clientX, clientY) {
+    const setter = iframe.contentWindow && iframe.contentWindow.setMeshCursor;
+    if (!setter) return;
+    const rect = iframe.getBoundingClientRect();
+    if (clientX < rect.left || clientX > rect.right ||
+        clientY < rect.top || clientY > rect.bottom) {
+      setter(-1000, -1000);
+      return;
+    }
+    // Translate viewport coords into the iframe's intrinsic coord
+    // space (which is what the mesh's getBoundingClientRect uses).
+    const ix = ((clientX - rect.left) / rect.width) * iframe.offsetWidth;
+    const iy = ((clientY - rect.top) / rect.height) * iframe.offsetHeight;
+    setter(ix, iy);
+  }
+
+  window.addEventListener('mousemove', (e) => forwardMouse(e.clientX, e.clientY),
+                          { passive: true });
+  window.addEventListener('mouseleave', () => {
+    const setter = iframe.contentWindow && iframe.contentWindow.setMeshCursor;
+    if (setter) setter(-1000, -1000);
+  });
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches.length) forwardMouse(e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive: true });
+
   function computeTarget() {
     const total = track.offsetHeight - window.innerHeight;
     return total > 0 ? clamp01(window.scrollY / total) : 0;

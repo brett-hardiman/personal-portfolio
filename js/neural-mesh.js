@@ -16,6 +16,14 @@ export function init() {
   let width, height, nodes, dpr;
   const mouse = { x: -1000, y: -1000 };
 
+  // Exposed so the parent gallery shell can forward mousemove from the
+  // outer page into the iframe while pointer-events is none on the
+  // iframe itself (gallery view). Pass -1000,-1000 to clear the cursor.
+  window.setMeshCursor = (x, y) => {
+    mouse.x = x;
+    mouse.y = y;
+  };
+
   const CONFIG = {
     nodeCount: 80,
     connectionDist: 160,
