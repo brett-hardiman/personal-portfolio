@@ -1,9 +1,14 @@
-/* gallery.css — Art gallery exhibition landing experience */
+/* gallery.css — Art gallery shell (index.html only).
+   Wraps the standalone portfolio (portfolio.html) inside a gilt frame
+   embedded in an <iframe>. Scrolling drives a CSS transform that scales
+   the framed iframe up from a small artwork to fullscreen, at which
+   point the portfolio is interactive at natural 1:1 size. */
 
 /* ──────────────────────────────────────────────
    Gallery design tokens
    ────────────────────────────────────────────── */
 :root {
+  --color-bg-primary: #191414;
   --gallery-wall: #17150f;
   --gallery-wall-light: #241f16;
   --gallery-gilt-dark: #6b522a;
@@ -15,45 +20,47 @@
 }
 
 /* ──────────────────────────────────────────────
-   Gallery track — provides scroll space
+   Body / track / stage
    ────────────────────────────────────────────── */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--gallery-wall);
+  color: var(--gallery-cream-light);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Scroll track — provides the 320vh of scroll space that drives the zoom. */
 #gallery-track {
   position: relative;
   height: 320vh;
 }
 
-/* ──────────────────────────────────────────────
-   Gallery stage — STICKY container.
-   Sticks at top:0 while inside #gallery-track, then naturally
-   scrolls away with the page once the user scrolls past the track,
-   revealing About behind it. This replaces the old "position: fixed"
-   approach which kept the stage glued to the viewport forever.
-   ────────────────────────────────────────────── */
+/* Stage — sticks to the top of the viewport while the user is inside
+   #gallery-track. Once the user scrolls past the track, the stage
+   naturally moves with the page (but there's nothing past the track,
+   so it just stays at maximum scroll). */
 #gallery-stage {
   position: sticky;
   top: 0;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-}
-
-.gallery-wall {
   background: var(--gallery-wall);
 }
 
 /* ──────────────────────────────────────────────
-   Gallery scene — the zooming container
+   Wall texture (plaster gradient + grain)
    ────────────────────────────────────────────── */
-#gallery-scene {
-  position: absolute;
-  inset: 0;
-  will-change: transform;
-}
-
-/* Wall texture: plaster gradient + SVG noise */
 .gallery-texture {
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background:
     linear-gradient(to bottom,
       var(--gallery-wall-light) 0%,
@@ -65,26 +72,37 @@
 }
 
 /* ──────────────────────────────────────────────
-   Artwork centering
+   Scene — centers the framed iframe, applies the zoom transform.
+   The transform is set by gallery.js per scroll progress.
    ────────────────────────────────────────────── */
-.gallery-artwork-wrap {
+#gallery-scene {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  will-change: transform;
+  transform-origin: center center;
+  /* Initial scale set by JS so the frame fits comfortably in the wall.
+     Defaults here just in case JS hasn't run yet — they get overridden. */
+  transform: scale(0.42);
 }
 
 /* ──────────────────────────────────────────────
-   The frame — gilt float frame.
-   position:relative so the placard + reflection (siblings of
-   .art-frame-inner, inside .art-frame) can anchor to the frame
-   itself rather than the full viewport.
+   Frame wrapper — wraps the gilt frame and acts as the
+   positioning context for the placard + reflection.
+   ────────────────────────────────────────────── */
+#frame-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* ──────────────────────────────────────────────
+   Gilt float frame
    ────────────────────────────────────────────── */
 .art-frame {
   position: relative;
-  margin-top: -2vh;
-  padding: clamp(10px, 1.3vw, 20px);
+  padding: 22px;
   background:
     linear-gradient(145deg,
       var(--gallery-gilt-light) 0%,
@@ -100,161 +118,35 @@
     inset 0 -1px 1px rgba(0, 0, 0, 0.45);
 }
 
-/* Float-mount gap */
+/* Float-mount gap between the gilt frame and the artwork */
 .art-frame-inner {
-  padding: clamp(6px, 0.8vw, 12px);
+  padding: 10px;
   background: #0a0908;
   box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.9);
-}
-
-/* ──────────────────────────────────────────────
-   The canvas — viewport into the artwork
-   ────────────────────────────────────────────── */
-#gallery-canvas {
-  position: relative;
-  width: 52vw;
-  height: 52vh;
-  overflow: hidden;
-  background: var(--color-bg-primary, #191414);
-  pointer-events: none;
-}
-
-/* The hero section fills the canvas — override layout.css defaults
-   (the existing rules assume hero is inside #main-content with 60px padding).
-   Important: explicit width/height in px-equivalents so neural-mesh.js's
-   offsetWidth/offsetHeight reads are non-zero on first paint. */
-#gallery-canvas > .section--hero {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  min-height: unset;
-  margin: 0;
-  padding: 0;
   display: block;
+  font-size: 0; /* eliminate inline-block whitespace under iframe */
 }
 
-/* Mesh canvas inside the framed hero. Force fill the hero box so
-   neural-mesh.js measures a real size at init. */
-#gallery-canvas #mesh-canvas {
-  width: 100%;
-  height: 100%;
+/* ──────────────────────────────────────────────
+   The iframe — full viewport size at intrinsic scale 1.
+   CSS transform on #gallery-scene scales it visually.
+   At progress 0: scale ~0.42 → framed artwork floats in the wall.
+   At progress 1: scale ~1.06 (overscan) → iframe fills viewport,
+                   frame edges pushed off-screen.
+   ────────────────────────────────────────────── */
+#portfolio-iframe {
   display: block;
-}
-
-/* Main content offsets: without hero as its first child, kill the 60px
-   padding-top — the site header is hidden during gallery phase anyway,
-   and once it appears it overlays content (not pushes it) */
-#main-content {
-  padding-top: 0;
-}
-
-/* The alternating section backgrounds in layout.css use :nth-child(odd|even).
-   Hero used to be #1; About was #2 (secondary bg). Now About is #1 (primary).
-   Re-anchor the rhythm so the original color order is preserved. */
-#main-content > .section:nth-child(odd) {
-  background-color: var(--color-bg-secondary);
-}
-#main-content > .section:nth-child(even) {
-  background-color: var(--color-bg-primary);
-}
-
-@media (max-height: 700px) {
-  #gallery-canvas {
-    width: 44vw;
-    height: 44vh;
-  }
-}
-
-@media (max-width: 640px) {
-  #gallery-canvas {
-    width: 68vw;
-    height: 44vh;
-  }
-}
-
-/* ──────────────────────────────────────────────
-   Hero content overlay — sits on TOP of the zooming scene at
-   natural size. Hidden during gallery phase, revealed at
-   progress >= 0.9 via gallery.js adding .gallery-revealed.
-
-   Rendered as an absolute overlay inside #gallery-stage so it
-   stays anchored to the viewport while the stage is sticky.
-   ────────────────────────────────────────────── */
-#hero-content-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  border: 0;
+  background: var(--color-bg-primary);
+  /* During gallery zoom the iframe is not interactive — outer scroll
+     drives the zoom. gallery.js flips this to 'auto' once zoom completes. */
   pointer-events: none;
-  transition: opacity 1.4s cubic-bezier(0.33, 0, 0.2, 1);
-}
-
-#hero-content-overlay.gallery-revealed {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Hold off the typing/fade animations until the overlay is revealed.
-   Selector specificity (#hero-content-overlay .hero-greeting = 1,1,0)
-   beats hero.css's .hero-greeting (0,1,0). */
-#hero-content-overlay .hero-greeting,
-#hero-content-overlay .hero-name {
-  animation: none;
-  width: 0;
-  overflow: hidden;
-  border-right: 2px solid var(--color-green);
-}
-
-#hero-content-overlay .hero-title,
-#hero-content-overlay .hero-tagline,
-#hero-content-overlay .hero-cta {
-  opacity: 0;
-  animation: none;
-}
-
-#hero-content-overlay.gallery-revealed .hero-greeting {
-  animation: typing-greeting 0.8s steps(10) 0.3s forwards, blink-caret 0.5s step-end 0.3s 5;
-}
-
-#hero-content-overlay.gallery-revealed .hero-name {
-  animation: typing-name 1s steps(14) 1.4s forwards, blink-caret 0.5s step-end 1.4s 5;
-}
-
-#hero-content-overlay.gallery-revealed .hero-title {
-  animation: hero-fade-in 0.6s ease 2.8s forwards;
-}
-
-#hero-content-overlay.gallery-revealed .hero-tagline {
-  animation: hero-fade-in 0.6s ease 3.1s forwards;
-}
-
-#hero-content-overlay.gallery-revealed .hero-cta {
-  animation: hero-fade-in 0.6s ease 3.4s forwards;
 }
 
 /* ──────────────────────────────────────────────
-   Site header — hidden during gallery phase
-   ────────────────────────────────────────────── */
-.site-header {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.8s ease;
-}
-
-.site-header.gallery-revealed {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* ──────────────────────────────────────────────
-   Glass sheen on artwork
+   Glass sheen overlaid on the artwork
    ────────────────────────────────────────────── */
 #gallery-glass {
   position: absolute;
@@ -270,7 +162,7 @@
 }
 
 /* ──────────────────────────────────────────────
-   Floor reflection
+   Floor reflection (anchored to bottom of frame)
    ────────────────────────────────────────────── */
 .art-reflection {
   position: absolute;
@@ -278,7 +170,7 @@
   left: 0;
   right: 0;
   height: 38%;
-  margin-top: clamp(18px, 3vh, 34px);
+  margin-top: 24px;
   background: linear-gradient(to bottom, rgba(168, 133, 74, 0.10), transparent 70%);
   filter: blur(10px);
   transform: scaleY(-0.85);
@@ -286,11 +178,11 @@
 }
 
 /* ──────────────────────────────────────────────
-   Museum placard
+   Museum placard (anchored to bottom-right of frame)
    ────────────────────────────────────────────── */
 .gallery-placard {
   position: absolute;
-  left: calc(100% + clamp(16px, 2.5vw, 40px));
+  left: calc(100% + 28px);
   bottom: 0;
   width: 168px;
   padding: 12px 14px;
@@ -299,6 +191,8 @@
   box-shadow:
     0 10px 26px rgba(0, 0, 0, 0.6),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  text-align: left;
+  font-size: 0; /* reset, children set their own size */
 }
 
 .gallery-placard-title {
@@ -307,11 +201,12 @@
   font-size: 15px;
   line-height: 1.3;
   color: #1c1a17;
+  margin: 0;
 }
 
 .gallery-placard-details {
   font-size: 10px;
-  margin-top: 6px;
+  margin: 6px 0 0;
   color: #5d574e;
   line-height: 1.5;
 }
@@ -324,14 +219,14 @@
   .gallery-placard {
     left: 50%;
     bottom: auto;
-    top: calc(100% + clamp(14px, 2.5vh, 28px));
+    top: calc(100% + 24px);
     transform: translateX(-50%);
     text-align: center;
   }
 }
 
 /* ──────────────────────────────────────────────
-   Spotlight + vignette
+   Spotlight + vignette (ambiance, fades during zoom)
    ────────────────────────────────────────────── */
 #gallery-ambiance {
   position: absolute;
@@ -362,7 +257,7 @@
 }
 
 /* ──────────────────────────────────────────────
-   Exhibition header
+   Exhibition header (top of stage)
    ────────────────────────────────────────────── */
 #gallery-header {
   position: absolute;
@@ -374,9 +269,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: clamp(24px, 4vh, 40px);
-  padding-left: 24px;
-  padding-right: 24px;
+  padding: clamp(24px, 4vh, 40px) 24px 0;
 }
 
 .gallery-header-label {
@@ -384,6 +277,7 @@
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--gallery-cream);
+  margin: 0;
   animation: gallery-fade-rise 0.8s ease-out both;
 }
 
@@ -392,19 +286,19 @@
   font-size: clamp(1.5rem, 4vw, 3rem);
   font-weight: 400;
   color: var(--gallery-cream-light);
-  margin-top: 8px;
+  margin: 8px 0 0;
   letter-spacing: -0.5px;
   animation: gallery-fade-rise 0.8s ease-out 0.2s both;
 }
 
 /* ──────────────────────────────────────────────
-   Scroll indicator
+   Scroll hint
    ────────────────────────────────────────────── */
 #gallery-scroll-hint {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: calc(50% + 27vh + 2.5vh);
+  bottom: clamp(24px, 6vh, 60px);
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -426,7 +320,7 @@
 }
 
 /* ──────────────────────────────────────────────
-   Return-to-gallery chip
+   Return-to-gallery chip (appears once zoom completes)
    ────────────────────────────────────────────── */
 #gallery-return-chip {
   position: fixed;
@@ -434,16 +328,16 @@
   left: 16px;
   z-index: 200;
   padding: 8px 16px;
+  font-family: inherit;
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gallery-cream-light);
-  background: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 9999px;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
@@ -455,7 +349,7 @@
 }
 
 /* ──────────────────────────────────────────────
-   Entrance animations
+   Animations
    ────────────────────────────────────────────── */
 @keyframes gallery-fade-rise {
   from { opacity: 0; transform: translateY(24px); }
@@ -474,16 +368,4 @@
     animation: none;
     opacity: 1;
   }
-}
-
-/* ──────────────────────────────────────────────
-   Gallery-complete state: hide gallery, show site
-   ────────────────────────────────────────────── */
-#gallery-track.gallery-complete {
-  display: none;
-}
-
-body.gallery-complete #gallery-return-chip {
-  opacity: 0;
-  pointer-events: none;
 }
