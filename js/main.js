@@ -1,4 +1,6 @@
-// main.js — Entry point. Imports and initializes all feature modules.
+// main.js — Entry point for the portfolio (loaded by portfolio.html).
+// The gallery shell is a SEPARATE page (index.html) that loads
+// js/gallery.js standalone and iframes this portfolio inside its frame.
 
 import { initScrollProgress } from './scroll-progress.js';
 import { initScrollReveal } from './scroll-reveal.js';
