@@ -297,18 +297,15 @@ body {
 }
 
 /* ──────────────────────────────────────────────
-   Scroll hint
+   Scroll hint — now nested INSIDE #gallery-header so it sits directly
+   below "A Working Retrospective" in the column flow (above the frame).
    ────────────────────────────────────────────── */
 #gallery-scroll-hint {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: clamp(24px, 6vh, 60px);
-  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  margin-top: clamp(16px, 2.5vh, 28px);
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
