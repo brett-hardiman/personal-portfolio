@@ -179,17 +179,20 @@ body {
 
 /* ──────────────────────────────────────────────
    Museum placard (anchored to bottom-right of frame)
+
+   Sized generously in CSS pixels because the gallery view renders
+   everything at ~0.42× — at smaller dimensions the text was illegible.
    ────────────────────────────────────────────── */
 .gallery-placard {
   position: absolute;
-  left: calc(100% + 28px);
+  left: calc(100% + 56px);
   bottom: 0;
-  width: 168px;
-  padding: 12px 14px;
+  width: 340px;
+  padding: 22px 26px;
   background: linear-gradient(165deg, #f4eee1, #e6ddc9);
-  border-radius: 1px;
+  border-radius: 2px;
   box-shadow:
-    0 10px 26px rgba(0, 0, 0, 0.6),
+    0 18px 40px rgba(0, 0, 0, 0.65),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
   text-align: left;
   font-size: 0; /* reset, children set their own size */
@@ -198,17 +201,17 @@ body {
 .gallery-placard-title {
   font-family: var(--gallery-font-display);
   font-style: italic;
-  font-size: 15px;
-  line-height: 1.3;
+  font-size: 30px;
+  line-height: 1.25;
   color: #1c1a17;
   margin: 0;
 }
 
 .gallery-placard-details {
-  font-size: 10px;
-  margin: 6px 0 0;
+  font-size: 16px;
+  margin: 12px 0 0;
   color: #5d574e;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .gallery-placard-collection {
