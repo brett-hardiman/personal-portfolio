@@ -23,11 +23,15 @@
 }
 
 /* ──────────────────────────────────────────────
-   Gallery stage — fixed viewport container
+   Gallery stage — STICKY container.
+   Sticks at top:0 while inside #gallery-track, then naturally
+   scrolls away with the page once the user scrolls past the track,
+   revealing About behind it. This replaces the old "position: fixed"
+   approach which kept the stage glued to the viewport forever.
    ────────────────────────────────────────────── */
 #gallery-stage {
-  position: fixed;
-  inset: 0;
+  position: sticky;
+  top: 0;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -72,7 +76,10 @@
 }
 
 /* ──────────────────────────────────────────────
-   The frame — gilt float frame
+   The frame — gilt float frame.
+   position:relative so the placard + reflection (siblings of
+   .art-frame-inner, inside .art-frame) can anchor to the frame
+   itself rather than the full viewport.
    ────────────────────────────────────────────── */
 .art-frame {
   position: relative;
@@ -113,19 +120,29 @@
 }
 
 /* The hero section fills the canvas — override layout.css defaults
-   (the existing rules assume hero is inside #main-content with 60px padding) */
+   (the existing rules assume hero is inside #main-content with 60px padding).
+   Important: explicit width/height in px-equivalents so neural-mesh.js's
+   offsetWidth/offsetHeight reads are non-zero on first paint. */
 #gallery-canvas > .section--hero {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   min-height: unset;
-  margin-top: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+/* Mesh canvas inside the framed hero. Force fill the hero box so
+   neural-mesh.js measures a real size at init. */
+#gallery-canvas #mesh-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* Main content offsets: without hero as its first child, kill the 60px
@@ -160,57 +177,65 @@
 }
 
 /* ──────────────────────────────────────────────
-   Hero content — hidden during gallery phase
-   Use higher-specificity selectors so this wins against
-   animations.css [data-reveal] / .revealed rules. We also
-   removed data-reveal from .hero-content in index.html so
-   scroll-reveal.js doesn't fight for control.
+   Hero content overlay — sits on TOP of the zooming scene at
+   natural size. Hidden during gallery phase, revealed at
+   progress >= 0.9 via gallery.js adding .gallery-revealed.
+
+   Rendered as an absolute overlay inside #gallery-stage so it
+   stays anchored to the viewport while the stage is sticky.
    ────────────────────────────────────────────── */
-#gallery-canvas .hero-content {
+#hero-content-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transform: none;
   transition: opacity 1.4s cubic-bezier(0.33, 0, 0.2, 1);
 }
 
-#gallery-canvas .hero-content.gallery-revealed {
+#hero-content-overlay.gallery-revealed {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Delay typing animations until gallery reveals */
-.hero-greeting,
-.hero-name {
+/* Hold off the typing/fade animations until the overlay is revealed.
+   Selector specificity (#hero-content-overlay .hero-greeting = 1,1,0)
+   beats hero.css's .hero-greeting (0,1,0). */
+#hero-content-overlay .hero-greeting,
+#hero-content-overlay .hero-name {
   animation: none;
   width: 0;
   overflow: hidden;
   border-right: 2px solid var(--color-green);
 }
 
-.hero-title,
-.hero-tagline,
-.hero-cta {
+#hero-content-overlay .hero-title,
+#hero-content-overlay .hero-tagline,
+#hero-content-overlay .hero-cta {
   opacity: 0;
   animation: none;
 }
 
-.gallery-revealed .hero-greeting {
+#hero-content-overlay.gallery-revealed .hero-greeting {
   animation: typing-greeting 0.8s steps(10) 0.3s forwards, blink-caret 0.5s step-end 0.3s 5;
 }
 
-.gallery-revealed .hero-name {
+#hero-content-overlay.gallery-revealed .hero-name {
   animation: typing-name 1s steps(14) 1.4s forwards, blink-caret 0.5s step-end 1.4s 5;
 }
 
-.gallery-revealed .hero-title {
+#hero-content-overlay.gallery-revealed .hero-title {
   animation: hero-fade-in 0.6s ease 2.8s forwards;
 }
 
-.gallery-revealed .hero-tagline {
+#hero-content-overlay.gallery-revealed .hero-tagline {
   animation: hero-fade-in 0.6s ease 3.1s forwards;
 }
 
-.gallery-revealed .hero-cta {
+#hero-content-overlay.gallery-revealed .hero-cta {
   animation: hero-fade-in 0.6s ease 3.4s forwards;
 }
 

@@ -20,7 +20,7 @@ export function initGallery() {
   const ambiance = document.getElementById('gallery-ambiance');
   const glass = document.getElementById('gallery-glass');
   const returnChip = document.getElementById('gallery-return-chip');
-  const heroContent = document.querySelector('.hero-content');
+  const heroContent = document.getElementById('hero-content-overlay');
   const siteHeader = document.querySelector('.site-header');
   const placard = document.querySelector('.gallery-placard');
 
