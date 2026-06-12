@@ -103,15 +103,15 @@
       pointer-events: none;
       transition: opacity 1s ease;
     }
-    /* Hide greeting + name without !important on width — the keyframe
-       'to' value (13ch) must win during the typing animation. The base
-       hero.css already sets width:0 with the same specificity, and we
-       beat that by being defined later in the cascade. */
+    /* Hide greeting + name without !important on width OR the caret
+       color — the typing keyframe's 'to' state sets width:13ch AND
+       border-right-color:transparent, so both need to win as the
+       animation ends. */
     .gallery-embedded .hero-greeting,
     .gallery-embedded .hero-name {
       animation: none !important;
       width: 0;
-      border-right-color: transparent !important;
+      border-right-color: transparent;
     }
     /* No !important on opacity — the hero-fade-in keyframe needs to
        drive it from 0 to 1 once .gallery-revealed adds the animation. */
@@ -126,15 +126,18 @@
       opacity: 1 !important;
       pointer-events: auto;
     }
+    /* No !important on border-right-color — the typing keyframe's
+       'to' value sets it to transparent so the caret disappears the
+       moment typing finishes. */
     .gallery-embedded.gallery-revealed .hero-greeting {
       animation: typing-greeting 0.8s steps(10) 0.4s forwards,
                  blink-caret 0.5s step-end 0.4s 5 !important;
-      border-right-color: var(--color-green) !important;
+      border-right-color: var(--color-green);
     }
     .gallery-embedded.gallery-revealed .hero-name {
       animation: typing-name 1s steps(14) 1.4s forwards,
                  blink-caret 0.5s step-end 1.4s 5 !important;
-      border-right-color: var(--color-green) !important;
+      border-right-color: var(--color-green);
     }
     .gallery-embedded.gallery-revealed .hero-title {
       animation: hero-fade-in 0.6s ease 2.7s forwards !important;
