@@ -34,6 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
@@ -70,30 +71,77 @@
     <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
   </header>
 
-  <main id="main-content">
+  <!-- =============================================
+       GALLERY EXHIBITION LAYER
+       ============================================= -->
+  <div id="gallery-track">
+    <div id="gallery-stage" class="gallery-wall">
 
-    <!-- =============================================
-         HERO SECTION
-         ============================================= -->
-    <section id="hero" class="section section--hero">
-      <canvas id="mesh-canvas" aria-hidden="true"></canvas>
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-decorative" aria-hidden="true">
-        <div class="hero-blob hero-blob--1" data-parallax-speed="0.5"></div>
-        <div class="hero-blob hero-blob--2" data-parallax-speed="1"></div>
-        <div class="hero-dots" data-parallax-speed="0.3"></div>
-      </div>
-      <div class="hero-content" data-reveal>
-        <p class="hero-greeting">Hello, I'm</p>
-        <h1 class="hero-name">Brett Hardiman</h1>
-        <p class="hero-title">AI/ML Product Owner <span class="hero-separator">|</span> AI Engineer</p>
-        <p class="hero-tagline">Using AI to work smarter, build faster, and never stop learning.</p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn--primary">View My Work</a>
-          <a href="https://www.linkedin.com/in/brett-hardiman-75682a205" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+      <div id="gallery-scene">
+        <div class="gallery-texture"></div>
+
+        <div class="gallery-artwork-wrap">
+          <div class="art-frame">
+            <div class="art-frame-inner">
+              <div id="gallery-canvas">
+
+                <!-- HERO SECTION (lives inside the framed artwork) -->
+                <section id="hero" class="section section--hero">
+                  <canvas id="mesh-canvas" aria-hidden="true"></canvas>
+                  <div class="hero-bg" aria-hidden="true"></div>
+                  <div class="hero-decorative" aria-hidden="true">
+                    <div class="hero-blob hero-blob--1" data-parallax-speed="0.5"></div>
+                    <div class="hero-blob hero-blob--2" data-parallax-speed="1"></div>
+                    <div class="hero-dots" data-parallax-speed="0.3"></div>
+                  </div>
+                  <div class="hero-content" data-reveal>
+                    <p class="hero-greeting">Hello, I'm</p>
+                    <h1 class="hero-name">Brett Hardiman</h1>
+                    <p class="hero-title">AI/ML Product Owner <span class="hero-separator">|</span> AI Engineer</p>
+                    <p class="hero-tagline">Using AI to work smarter, build faster, and never stop learning.</p>
+                    <div class="hero-cta">
+                      <a href="#projects" class="btn btn--primary">View My Work</a>
+                      <a href="https://www.linkedin.com/in/brett-hardiman-75682a205" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+                    </div>
+                  </div>
+                </section>
+
+              </div>
+            </div>
+          </div>
+          <div class="art-reflection" aria-hidden="true"></div>
+          <div class="gallery-placard">
+            <p class="gallery-placard-title">The Professional Career of Brett Hardiman</p>
+            <p class="gallery-placard-details">
+              2021 &ndash; Present<br>
+              Interactive digital portfolio, living work<br>
+              <span class="gallery-placard-collection">The Hardiman Collection</span>
+            </p>
+          </div>
         </div>
       </div>
-    </section>
+
+      <div id="gallery-ambiance">
+        <div class="gallery-spotlight"></div>
+        <div class="gallery-vignette"></div>
+      </div>
+
+      <div id="gallery-glass"></div>
+
+      <div id="gallery-header">
+        <p class="gallery-header-label">The Hardiman Collection</p>
+        <h2 class="gallery-header-title">A Working Retrospective</h2>
+      </div>
+
+      <div id="gallery-scroll-hint">
+        <span>Scroll to view</span>
+        <span class="gallery-scroll-line"></span>
+      </div>
+
+    </div>
+  </div>
+
+  <main id="main-content">
 
     <!-- =============================================
          ABOUT SECTION
@@ -439,6 +487,8 @@
       <p class="footer-credit">Built with Claude Code</p>
     </div>
   </footer>
+
+  <button id="gallery-return-chip" aria-label="Return to gallery">&larr; Gallery</button>
 
   <script type="module" src="js/main.js"></script>
 </body>
