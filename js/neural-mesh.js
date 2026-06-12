@@ -124,7 +124,12 @@ export function init() {
     requestAnimationFrame(animate);
   }
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Honor prefers-reduced-motion in the standalone portfolio, but when
+  // we're embedded inside the gallery the mesh IS the artwork — the
+  // user explicitly wants it animating, so override the OS preference.
+  const isGalleryEmbedded = document.documentElement.classList.contains('gallery-embedded');
+  const prefersReducedMotion = !isGalleryEmbedded &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) {
     resize();
     createNodes();

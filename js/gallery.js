@@ -51,6 +51,15 @@ function initGallery() {
     catch (e) { /* iframe not ready yet — next tick will retry */ }
   }
 
+  // Iframe sends 'iframe-ready' on its load event so we can re-send the
+  // current reveal state. Handles the race where the user scrolls past
+  // the reveal threshold before the iframe has wired up its listener.
+  window.addEventListener('message', (e) => {
+    if (e.data === 'iframe-ready') {
+      postToIframe(revealedInIframe ? 'gallery-reveal' : 'gallery-hide');
+    }
+  });
+
   function computeTarget() {
     const total = track.offsetHeight - window.innerHeight;
     return total > 0 ? clamp01(window.scrollY / total) : 0;

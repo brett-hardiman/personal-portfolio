@@ -50,6 +50,16 @@
         document.documentElement.classList.remove('gallery-revealed');
       }
     });
+    // Handshake: tell the parent we're ready so it can re-send the
+    // current reveal state (the parent's scroll-triggered postMessage
+    // may have fired before this listener was attached).
+    window.addEventListener('load', function () {
+      try {
+        if (window.parent && window.parent !== window) {
+          window.parent.postMessage('iframe-ready', '*');
+        }
+      } catch (e) { /* cross-origin or detached — ignore */ }
+    });
   </script>
 
   <!-- Styles -->
@@ -59,6 +69,22 @@
        external .css) so they ride along with portfolio.html itself and
        can't get stuck in browser cache while the shell is iterating. -->
   <style>
+    /* While embedded-but-not-revealed, lock the iframe's own scroll so
+       the wheel/touch only drives the outer gallery zoom. Need overflow
+       on BOTH html and body — body alone doesn't pin programmatic or
+       touch-driven scroll on the document. Once revealed (zoom
+       complete), scroll is enabled so the user can navigate. */
+    html.gallery-embedded,
+    .gallery-embedded body {
+      overflow: hidden;
+      height: 100%;
+    }
+    html.gallery-embedded.gallery-revealed,
+    .gallery-embedded.gallery-revealed body {
+      overflow: visible;
+      height: auto;
+    }
+
     /* Hide the nav and hero text/buttons inside the iframe until the
        parent shell signals reveal. Mesh + decorative blobs stay
        visible — they ARE the artwork in the frame. */
