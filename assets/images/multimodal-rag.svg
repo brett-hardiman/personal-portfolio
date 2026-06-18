@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <!-- Background -->
+  <rect width="800" height="450" rx="8" fill="#191414"/>
+
+  <!-- Window chrome -->
+  <rect x="0" y="0" width="800" height="32" rx="8" fill="#232323"/>
+  <rect x="0" y="16" width="800" height="16" fill="#232323"/>
+  <circle cx="20" cy="16" r="6" fill="#FF5F57"/>
+  <circle cx="40" cy="16" r="6" fill="#FEBC2E"/>
+  <circle cx="60" cy="16" r="6" fill="#28C840"/>
+  <text x="400" y="20" text-anchor="middle" font-family="monospace" font-size="11" fill="#727272">multimodal-rag — mcp://knowledge-base</text>
+
+  <!-- Terminal content area -->
+  <rect x="16" y="44" width="768" height="394" rx="4" fill="#121212"/>
+
+  <!-- Claude query line -->
+  <text x="28" y="70" font-family="monospace" font-size="12" fill="#1DB954">claude&#9656;</text>
+  <text x="78" y="70" font-family="monospace" font-size="12" fill="#FFFFFF">search my notes — "how does the auth flow work?"</text>
+  <rect x="555" y="60" width="7" height="13" fill="#1DB954"/>
+
+  <!-- Divider under query -->
+  <rect x="28" y="84" width="744" height="1" fill="#2A2A2A"/>
+
+  <!-- ===== Stage 1: SOURCES (left) ===== -->
+  <text x="28" y="112" font-family="monospace" font-size="10" fill="#727272">SOURCES</text>
+
+  <!-- code -->
+  <rect x="28" y="122" width="150" height="26" rx="4" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="1"/>
+  <rect x="36" y="129" width="34" height="12" rx="2" fill="#1DB954"/>
+  <text x="53" y="138" text-anchor="middle" font-family="monospace" font-size="8" font-weight="700" fill="#191414">.py</text>
+  <text x="78" y="139" font-family="monospace" font-size="10" fill="#B3B3B3">code</text>
+  <!-- pdf -->
+  <rect x="28" y="154" width="150" height="26" rx="4" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="1"/>
+  <rect x="36" y="161" width="34" height="12" rx="2" fill="#FF5F57"/>
+  <text x="53" y="170" text-anchor="middle" font-family="monospace" font-size="8" font-weight="700" fill="#191414">.pdf</text>
+  <text x="78" y="171" font-family="monospace" font-size="10" fill="#B3B3B3">PDFs</text>
+  <!-- images -->
+  <rect x="28" y="186" width="150" height="26" rx="4" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="1"/>
+  <rect x="36" y="193" width="34" height="12" rx="2" fill="#FEBC2E"/>
+  <text x="53" y="202" text-anchor="middle" font-family="monospace" font-size="8" font-weight="700" fill="#191414">.png</text>
+  <text x="78" y="203" font-family="monospace" font-size="10" fill="#B3B3B3">images</text>
+  <!-- notes -->
+  <rect x="28" y="218" width="150" height="26" rx="4" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="1"/>
+  <rect x="36" y="225" width="34" height="12" rx="2" fill="#D4A843"/>
+  <text x="53" y="234" text-anchor="middle" font-family="monospace" font-size="8" font-weight="700" fill="#191414">.md</text>
+  <text x="78" y="235" font-family="monospace" font-size="10" fill="#B3B3B3">notes</text>
+
+  <!-- ingest arrow -->
+  <text x="196" y="187" font-family="monospace" font-size="16" fill="#727272">&#8594;</text>
+
+  <!-- ===== Stage 2: pgvector DB (center) ===== -->
+  <text x="262" y="112" font-family="monospace" font-size="10" fill="#727272">EMBED + INDEX</text>
+
+  <!-- Database cylinder -->
+  <g>
+    <path d="M 248 150 L 248 230 A 60 14 0 0 0 368 230 L 368 150" fill="#181D1A" stroke="#1DB954" stroke-width="1.5"/>
+    <ellipse cx="308" cy="150" rx="60" ry="14" fill="#1F2A22" stroke="#1DB954" stroke-width="1.5"/>
+    <ellipse cx="308" cy="180" rx="60" ry="14" fill="none" stroke="#1DB954" stroke-width="0.75" opacity="0.4"/>
+    <ellipse cx="308" cy="206" rx="60" ry="14" fill="none" stroke="#1DB954" stroke-width="0.75" opacity="0.4"/>
+  </g>
+  <text x="308" y="154" text-anchor="middle" font-family="monospace" font-size="11" font-weight="700" fill="#1DB954">pgvector</text>
+  <text x="308" y="258" text-anchor="middle" font-family="monospace" font-size="9" fill="#727272">Postgres · Voyage AI</text>
+
+  <!-- hybrid search label -->
+  <rect x="240" y="278" width="136" height="22" rx="11" fill="#1A1A1A" stroke="#2E2E2E" stroke-width="1"/>
+  <text x="308" y="293" text-anchor="middle" font-family="monospace" font-size="9" fill="#B3B3B3">semantic + keyword</text>
+
+  <!-- retrieve arrow -->
+  <text x="392" y="187" font-family="monospace" font-size="16" fill="#727272">&#8594;</text>
+
+  <!-- ===== Stage 3: RANKED RESULTS (right) ===== -->
+  <text x="440" y="112" font-family="monospace" font-size="10" fill="#727272">RANKED RESULTS</text>
+
+  <!-- result 1 -->
+  <rect x="440" y="122" width="332" height="34" rx="4" fill="#232323"/>
+  <rect x="440" y="122" width="3" height="34" rx="1.5" fill="#1DB954"/>
+  <text x="456" y="136" font-family="monospace" font-size="10" fill="#FFFFFF">auth/login.py</text>
+  <text x="456" y="149" font-family="monospace" font-size="9" fill="#727272">def authenticate(token, mfa_code)</text>
+  <rect x="712" y="130" width="48" height="16" rx="3" fill="#1DB954"/>
+  <text x="736" y="142" text-anchor="middle" font-family="monospace" font-size="9" font-weight="700" fill="#191414">0.94</text>
+
+  <!-- result 2 -->
+  <rect x="440" y="162" width="332" height="34" rx="4" fill="#1C1C1C"/>
+  <rect x="440" y="162" width="3" height="34" rx="1.5" fill="#1DB954" opacity="0.7"/>
+  <text x="456" y="176" font-family="monospace" font-size="10" fill="#FFFFFF">security-spec.pdf</text>
+  <text x="456" y="189" font-family="monospace" font-size="9" fill="#727272">§3.2 — MFA challenge &amp; session issuance</text>
+  <rect x="712" y="170" width="48" height="16" rx="3" fill="#232323" stroke="#1DB954" stroke-width="1"/>
+  <text x="736" y="182" text-anchor="middle" font-family="monospace" font-size="9" font-weight="700" fill="#1DB954">0.91</text>
+
+  <!-- result 3 -->
+  <rect x="440" y="202" width="332" height="34" rx="4" fill="#1C1C1C"/>
+  <rect x="440" y="202" width="3" height="34" rx="1.5" fill="#1DB954" opacity="0.5"/>
+  <text x="456" y="216" font-family="monospace" font-size="10" fill="#FFFFFF">architecture.png</text>
+  <text x="456" y="229" font-family="monospace" font-size="9" fill="#727272">diagram — token exchange sequence</text>
+  <rect x="712" y="210" width="48" height="16" rx="3" fill="#232323" stroke="#1DB954" stroke-width="1"/>
+  <text x="736" y="222" text-anchor="middle" font-family="monospace" font-size="9" font-weight="700" fill="#1DB954">0.88</text>
+
+  <!-- result 4 -->
+  <rect x="440" y="242" width="332" height="34" rx="4" fill="#1C1C1C"/>
+  <rect x="440" y="242" width="3" height="34" rx="1.5" fill="#1DB954" opacity="0.35"/>
+  <text x="456" y="256" font-family="monospace" font-size="10" fill="#FFFFFF">notes/auth-decisions.md</text>
+  <text x="456" y="269" font-family="monospace" font-size="9" fill="#727272">why we chose short-lived JWTs</text>
+  <rect x="712" y="250" width="48" height="16" rx="3" fill="#232323" stroke="#1DB954" stroke-width="1"/>
+  <text x="736" y="262" text-anchor="middle" font-family="monospace" font-size="9" font-weight="700" fill="#1DB954">0.85</text>
+
+  <!-- Divider -->
+  <rect x="28" y="386" width="744" height="1" fill="#333"/>
+
+  <!-- MCP grounded answer -->
+  <text x="28" y="410" font-family="monospace" font-size="12" fill="#1DB954">&#10003; 4 sources retrieved via MCP — answer grounded in your files.</text>
+  <text x="28" y="428" font-family="monospace" font-size="11" fill="#727272">github.com/brett-hardiman/multi-modal-rag-project</text>
+</svg>
